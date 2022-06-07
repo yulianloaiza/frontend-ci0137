@@ -6,7 +6,10 @@ module.exports = {
     extend: {
       colors:{
         'navy-blue': '#354259',
-        'light-gold' : '#CDC2AE'
+        'brown-gold' : '#CDC2AE',
+        'light-gold' : '#ECE5C7',
+        'subtitle-grey' : '#858585',        
+        'idle-grey' : '#F5F5F5'
       }
     },
   },

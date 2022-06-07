@@ -1,4 +1,3 @@
-//Todavia falta que sea responsive
 function Footer() {
   return (
     <>

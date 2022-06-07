@@ -8,18 +8,18 @@ function Header() {
         <div className="w-1/2">
           <Logo width="w-20" height="h-20" />
         </div>
-        <div className="w-1/2 flex gap-20 items-center justify-end">
+        <div className="w-1/2 flex gap-20 items-center justify-end text-brown-gold font-semibold">
           <Link to="/Home">
-            <p className="text-light-gold">Inicio</p>
+            <p>Inicio</p>
           </Link>
           <Link to="/Animals">
-            <p className="text-light-gold">Animales</p>
+            <p>Animales</p>
           </Link>
           <Link to="/Organizations">
-            <p className="text-light-gold">Organizaciones</p>
+            <p>Organizaciones</p>
           </Link>
           <Link to="/About">
-            <p className="text-light-gold">Sobre Nosotros</p>
+            <p>Sobre Nosotros</p>
           </Link>
         </div>
       </div>
