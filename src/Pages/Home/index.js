@@ -1,12 +1,18 @@
+import Button from "../../Component/Button";
 import ContentCard from "../../Component/ContentCard";
 import Footer from "../../Component/Footer";
 import Header from "../../Component/Header";
+import InputWithLabel from "../../Component/InputWithLabel";
 //Del momento solo esta como relleno para ir probando componentes
 function App() {
   return (
     <div className="bg-light-gold">
       <Header />
-      <p>Body de la pag </p>
+      <p>Body de la pagina </p>
+
+      <div class="flex space-x-2 content-center justify-center">
+        <Button text={"Adoptar"} />
+      </div>
 
       <div className="flex gap-8 px-4 md:px-8 lg:px-20 py-4 mb-8">
         <ContentCard
@@ -52,6 +58,24 @@ function App() {
             window.location = "/Organizations";
           }}
         ></ContentCard>
+      </div>
+
+      <div>
+        <InputWithLabel
+          subtitle={"Donde estará la mascota cuando usted no este en casa?"}
+          bigText="true"
+        />
+        <InputWithLabel
+          subtitle={
+            "Por favor digite la dirección completa de su hogar y cuantas personas viven en ella dia y noche"
+          }
+          bigText="true"
+        />
+        <InputWithLabel
+          subtitle={"por favor digite su nombre completo"}
+          bigText="false"
+        />
+        <InputWithLabel subtitle={"Su fam esta de acuerdo?"} bigText="false" />
       </div>
 
       <Footer />

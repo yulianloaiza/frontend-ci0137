@@ -13,7 +13,6 @@ function App() {
         <Route path="/Animals" element={<Animals />} />
         <Route path="/Organizations" element={<Organizations />} />
         <Route path="/About" element={<About />} />
-
       </Routes>
     </BrowserRouter>
   );
