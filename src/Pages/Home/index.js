@@ -4,10 +4,37 @@ import Footer from "../../Component/Footer";
 import Header from "../../Component/Header";
 import InputWithLabel from "../../Component/InputWithLabel";
 //Del momento solo esta como relleno para ir probando componentes
+
+//Background color pending. No me funciona el margen derecho
+{/* <div className="w-full h-64 bg-red-800 top-0 left-0 absolute opacity-40
+         mx-4 md:mx-8 lg:mx-20"></div> */}
+//Pendiente agregarle color a los textos. 
+
 function App() {
   return (
     <div className="bg-light-gold">
       <Header />
+      {/* Banner de bienvenida a la pagina*/}
+
+      <div className="w-full relative px-4 md:px-8 lg:px-20 pb-4 mb-8">
+        <div
+          className="w-full h-full flex flex-col 
+        absolute top-0 left-0 text-center justify-center items-center z-30
+        px-4 md:px-8 lg:px-20 pb-4 mb-8"
+        >
+          <p className="text-5xl font-bold">¡Bienvenido a Mambo Adopciones!</p>
+          <p className="text-xl">
+            Donde puedes encontrar animales en adopción en el territorio
+            costarricense
+          </p>
+        </div>        
+        <img
+          src="https://wallpaperaccess.com/full/2170841.jpg"
+          alt="Imágen de bienvenida"
+          className="w-full h-64 object-cover"
+        />
+      </div>
+
       <p>Body de la pagina </p>
 
       <div class="flex space-x-2 content-center justify-center">
