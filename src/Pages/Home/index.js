@@ -6,14 +6,55 @@ import InputWithLabel from "../../Component/InputWithLabel";
 //Del momento solo esta como relleno para ir probando componentes
 
 //Background color pending. No me funciona el margen derecho
-{/* <div className="w-full h-64 bg-red-800 top-0 left-0 absolute opacity-40
-         mx-4 md:mx-8 lg:mx-20"></div> */}
-//Pendiente agregarle color a los textos. 
+{
+  /* <div className="w-full h-64 bg-red-800 top-0 left-0 absolute opacity-40
+         mx-4 md:mx-8 lg:mx-20"></div> */
+}
+//Pendiente agregarle color a los textos.
 
 function App() {
   return (
     <div className="bg-light-gold">
       <Header />
+
+      {/*Probando historias exito 
+      Pendiente como establecer la altura*/}
+      <div
+        className="px-4 md:px-8 lg:px-20 pb-4 mb-8
+    grid grid-cols-2"
+      >
+        {/*Columna izquierda
+        Pendiente como acomodar el texto de aca y si hay un limite en tamano*/}
+        <div className="bg-idle-grey
+        px-4 md:px-8 lg:px-20 py-4 mb-8">          
+          <p className="text-5xl font-bold">"Todo fue demasiado lindo de verdad, es una luz especial para nosotros"</p>
+          <p className="text-xl">-Tal ves autora</p>
+        </div>
+        {/*Columna derecha*/}
+        <div className="bg-red-700
+        px-4 md:px-8 lg:px-20 py-4 mb-8">
+          <p className="text-5xl font-bold">SOY EL CONTENIDO</p>
+          <p className="text-xl">VAMOS</p>
+        </div>
+      </div>
+
+      <h1> empeiza lo viejo</h1>
+      <div className="w-full relative px-4 md:px-8 lg:px-20 pb-4 mb-8">
+        <div
+          className="w-full h-full flex flex-col 
+        absolute top-0 left-0 text-center justify-center items-center z-30
+        px-4 md:px-8 lg:px-20 pb-4 mb-8"
+        >
+          <p className="text-5xl font-bold">Texto historia</p>
+          <p className="text-xl">Talves subtexto historia</p>
+        </div>
+        <img
+          src="https://wallpaperaccess.com/full/2170841.jpg"
+          alt="Imágen de bienvenida"
+          className="w-full h-64 object-cover"
+        />
+      </div>
+
       {/* Banner de bienvenida a la pagina*/}
 
       <div className="w-full relative px-4 md:px-8 lg:px-20 pb-4 mb-8">
@@ -27,7 +68,7 @@ function App() {
             Donde puedes encontrar animales en adopción en el territorio
             costarricense
           </p>
-        </div>        
+        </div>
         <img
           src="https://wallpaperaccess.com/full/2170841.jpg"
           alt="Imágen de bienvenida"
