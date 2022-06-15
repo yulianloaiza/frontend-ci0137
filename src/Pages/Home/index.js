@@ -72,8 +72,8 @@ function App() {
 
       <div className="flex gap-8 px-4 md:px-8 lg:px-20 py-4 mb-8">
         <ContentCard
-          image="https://i1.wp.com/www.elrefugiocostaballena.com/wp-content/uploads/2022/06/WhatsApp-Image-2022-06-06-at-3.04.38-PM.jpeg?w=1024&ssl=1"
-          mainText="Lupita"
+          image="https://gray-kcbd-prod.cdn.arcpublishing.com/resizer/SQif8hGoA6PNTFUsqV5sEpUbUBU=/800x800/smart/filters:quality(70)/cloudfront-us-east-1.images.arcpublishing.com/gray/STCTNNN5SBCQ7L34YV7WD36APA.jpg"
+          mainText="Diana"
           subtitle="Organización"
           secondaryText="Centro Municipal de Educación para el Cuido Animal"
           location={"Cartago"}
@@ -83,8 +83,8 @@ function App() {
         ></ContentCard>
 
         <ContentCard
-          image="https://assets.website-files.com/5ff8b159dd39137180f574ff/60133f5ebb139f0deaa2517d_catalina.jpeg"
-          mainText="Lupita"
+          image="https://d2zp5xs5cp8zlg.cloudfront.net/image-35477-800.jpg"
+          mainText="Jessy"
           subtitle="Organización"
           secondaryText="Animales de Asís"
           location={"Cartago"}
@@ -94,7 +94,7 @@ function App() {
         ></ContentCard>
 
         <ContentCard
-          image="https://i1.wp.com/www.elrefugiocostaballena.com/wp-content/uploads/2020/04/279014754_10160278723458023_5217916145635528412_n.jpg?w=1536&ssl=1"
+          image="https://d2zp5xs5cp8zlg.cloudfront.net/image-32958-800.jpg"
           mainText="Maximiliano"
           subtitle="Organización"
           secondaryText="El Refugio Hogar Animal Costa Ballena"
@@ -105,7 +105,7 @@ function App() {
         ></ContentCard>
 
         <ContentCard
-          image="https://s3.amazonaws.com/www-inside-design/uploads/2020/10/aspect-ratios-blogpost-1x1-1.png"
+          image="https://www.dogstrust.org.uk/dogimages/1120385_ginger_20220427084245_ginger-summer-pic_800.jpg"
           mainText="Lupita"
           subtitle="Organización"
           secondaryText="Centro Municipal de Educación para el Cuido Animal"

@@ -11,15 +11,14 @@ function ContentCard({
   location,
   onClick,
 }) {
-  //Pendiente, que las imagenes se vean a full, o que las imagenes sean mas widescreen y se rellene el
-  //espacio en blanco de alguna manera
+  //Se fuerza a que las imagenes sean de 800x800 pixeles
   return (
     <>
-      <div className="flex gap-4 content-start w-1/4 bg-idle-grey border rounded">
+      <div className="flex gap-4 content-start w-full bg-idle-grey border rounded">
         <div>
           <div>
             <img
-              className="w-full h-60 object-cover rounded-t"
+              className="w-full h-full object-cover rounded-t"
               src={image}
               alt={mainText}
             />
