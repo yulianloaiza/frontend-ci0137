@@ -70,7 +70,7 @@ function App() {
         <Button text={"Adoptar"} />
       </div>
 
-      <div className="flex gap-8 px-4 md:px-8 lg:px-20 py-4 mb-8">
+      <div className="grid grid-cols-4 gap-8 px-4 md:px-8 lg:px-20 py-4 mb-8">
         <ContentCard
           image="https://gray-kcbd-prod.cdn.arcpublishing.com/resizer/SQif8hGoA6PNTFUsqV5sEpUbUBU=/800x800/smart/filters:quality(70)/cloudfront-us-east-1.images.arcpublishing.com/gray/STCTNNN5SBCQ7L34YV7WD36APA.jpg"
           mainText="Diana"
