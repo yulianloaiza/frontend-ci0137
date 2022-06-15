@@ -15,11 +15,11 @@ function ContentCard({
   //espacio en blanco de alguna manera
   return (
     <>
-      <div className="flex gap-4 content-start w-1/4 bg-idle-grey">
+      <div className="flex gap-4 content-start w-1/4 bg-idle-grey border rounded">
         <div>
           <div>
             <img
-              className="w-full h-60 object-cover"
+              className="w-full h-60 object-cover rounded-t"
               src={image}
               alt={mainText}
             />

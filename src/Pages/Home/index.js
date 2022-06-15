@@ -25,41 +25,31 @@ function App() {
       >
         {/*Columna izquierda
         Pendiente como acomodar el texto de aca y si hay un limite en tamano*/}
-        <div className="bg-idle-grey
-        px-4 md:px-8 lg:px-20 py-4 mb-8">          
-          <p className="text-5xl font-bold">"Todo fue demasiado lindo de verdad, es una luz especial para nosotros"</p>
+        <div
+          className="bg-idle-grey rounded
+        px-4 md:px-8 lg:px-20 py-4 mb-8"
+        >
+          <p className="text-5xl font-bold">
+            "Todo fue demasiado lindo de verdad, es una luz especial para
+            nosotros"
+          </p>
           <p className="text-xl">-Tal ves autora</p>
         </div>
         {/*Columna derecha*/}
-        <div className="bg-red-700
-        px-4 md:px-8 lg:px-20 py-4 mb-8">
+        <div
+          className="bg-red-700 rounded
+        px-4 md:px-8 lg:px-20 py-4 mb-8"
+        >
           <p className="text-5xl font-bold">SOY EL CONTENIDO</p>
           <p className="text-xl">VAMOS</p>
         </div>
-      </div>
-
-      <h1> empeiza lo viejo</h1>
-      <div className="w-full relative px-4 md:px-8 lg:px-20 pb-4 mb-8">
-        <div
-          className="w-full h-full flex flex-col 
-        absolute top-0 left-0 text-center justify-center items-center z-30
-        px-4 md:px-8 lg:px-20 pb-4 mb-8"
-        >
-          <p className="text-5xl font-bold">Texto historia</p>
-          <p className="text-xl">Talves subtexto historia</p>
-        </div>
-        <img
-          src="https://wallpaperaccess.com/full/2170841.jpg"
-          alt="Imágen de bienvenida"
-          className="w-full h-64 object-cover"
-        />
       </div>
 
       {/* Banner de bienvenida a la pagina*/}
 
       <div className="w-full relative px-4 md:px-8 lg:px-20 pb-4 mb-8">
         <div
-          className="w-full h-full flex flex-col 
+          className="w-full h-full flex flex-col
         absolute top-0 left-0 text-center justify-center items-center z-30
         px-4 md:px-8 lg:px-20 pb-4 mb-8"
         >
@@ -72,11 +62,9 @@ function App() {
         <img
           src="https://wallpaperaccess.com/full/2170841.jpg"
           alt="Imágen de bienvenida"
-          className="w-full h-64 object-cover"
+          className="w-full h-64 object-cover rounded"
         />
       </div>
-
-      <p>Body de la pagina </p>
 
       <div class="flex space-x-2 content-center justify-center">
         <Button text={"Adoptar"} />
