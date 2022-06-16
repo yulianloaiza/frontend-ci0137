@@ -1,15 +1,16 @@
+import Header from "../../Component/Header";
 import Button from "../../Component/Button";
 import ContentCard from "../../Component/ContentCard";
-import Footer from "../../Component/Footer";
-import Header from "../../Component/Header";
+import Carousel from "../../Component/Carousel";
 import InputWithLabel from "../../Component/InputWithLabel";
+import Footer from "../../Component/Footer";
 //Del momento solo esta como relleno para ir probando componentes
 
 //Background color pending. No me funciona el margen derecho
-{
-  /* <div className="w-full h-64 bg-red-800 top-0 left-0 absolute opacity-40
+
+/* <div className="w-full h-64 bg-red-800 top-0 left-0 absolute opacity-40
          mx-4 md:mx-8 lg:mx-20"></div> */
-}
+
 //Pendiente agregarle color a los textos.
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
       Pendiente como establecer la altura*/}
       <div
         className="px-4 md:px-8 lg:px-20 pb-4 mb-8
-    grid grid-cols-2"
+    grid grid-cols-2 "
       >
         {/*Columna izquierda
         Pendiente como acomodar el texto de aca y si hay un limite en tamano*/}
@@ -37,11 +38,11 @@ function App() {
         </div>
         {/*Columna derecha*/}
         <div
-          className="bg-red-700 rounded
-        px-4 md:px-8 lg:px-20 py-4 mb-8"
+          className="bg-component-shadow rounded
+        px-4 md:px-8 lg:px-20 py-4 mb-8         
+        max-w-3xl "
         >
-          <p className="text-5xl font-bold">SOY EL CONTENIDO</p>
-          <p className="text-xl">VAMOS</p>
+          <Carousel />
         </div>
       </div>
 

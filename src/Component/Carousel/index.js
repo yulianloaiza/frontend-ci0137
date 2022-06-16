@@ -1,6 +1,8 @@
 import "tw-elements";
 
-/*Se puede agregar bool para indicadores o no. Pendiente ver si se pasa como parametro opcional
+/*
+Al igual que en ContentCard, aca se suben fotos de 800x800 pixeles
+Se puede agregar bool para indicadores o no. Pendiente ver si se pasa como parametro opcional
 las imagenes con thumbnails para previews
 Pendiente acomodar botones e indicador en terminos de posicion*/
 function Carousel() {
@@ -11,6 +13,7 @@ function Carousel() {
         class="carousel slide relative"
         data-bs-ride="carousel"
       >
+        {/*Indicadores inferiores*/}
         <div class="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">
           <button
             type="button"
@@ -33,29 +36,42 @@ function Carousel() {
             aria-label="Slide 3"
           ></button>
         </div>
-        <div class="carousel-inner relative w-full overflow-hidden">
-          <div class="carousel-item active float-left w-full">
-            <img
-              src="https://mdbcdn.b-cdn.net/img/new/slides/041.webp"
-              class="block w-full"
-              alt="Wild Landscape"
-            />
+        {/*Contenedor imagen principal y texto*/}
+        {/*Parece que hay que alinear las imagenes primero, ya que ellas estan hacia la izquieda, 
+        pero el papa div que contiene a todas las imagenes tiene todo el espacio. */}
+        <div className="">
+            {/*Div que contiene las imagenes */}
+          <div class="carousel-inner relative overflow-hidden ">
+            <div class="carousel-item active float-right ">
+              <img
+                src="https://imageserver.petsbest.com/marketing/blog/meeting-new-dogs.jpg"
+                className="max-h-96 max-w-96"
+                alt="Wild Landscape"
+              />
+            </div>
+            <div class="carousel-item float-left max-h-96 max-w-96">
+              <img
+                src="https://icalmpet.com/wp-content/uploads/iCalm-Pet-Solutions-Dog.jpg"
+                className="max-h-96 max-w-96"
+                alt="Camera"                
+              />
+            </div>
+            <div class="carousel-item float-left max-h-96 max-w-96">
+              <img
+                src="https://petapixel.com/assets/uploads/2022/06/Breathtaking-Photos-of-Airborne-Dogs-Highlighted-by-Colorful-Holi-Paint07-800x800.jpg"
+                className="max-h-96 max-w-96"
+                alt="Exotic Fruits"                
+              />
+            </div>
           </div>
-          <div class="carousel-item float-left w-full">
-            <img
-              src="https://mdbcdn.b-cdn.net/img/new/slides/042.webp"
-              class="block w-full"
-              alt="Camera"
-            />
-          </div>
-          <div class="carousel-item float-left w-full">
-            <img
-              src="https://mdbcdn.b-cdn.net/img/new/slides/043.webp"
-              class="block w-full"
-              alt="Exotic Fruits"
-            />
+          <div className="p-4 text-left">
+            <p className="text-subtitle-grey"> Nombre </p>
+            <p className="text-xl pb-2">Maximus</p>
+            <p className="text-subtitle-grey">Posicion</p>
+            <p className="text-lg pb-2">hola</p>
           </div>
         </div>
+
         <button
           class="carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
           type="button"

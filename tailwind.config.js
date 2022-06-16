@@ -9,7 +9,11 @@ module.exports = {
         'brown-gold' : '#CDC2AE',
         'light-gold' : '#ECE5C7',
         'subtitle-grey' : '#858585',        
-        'idle-grey' : '#F5F5F5'
+        'idle-grey' : '#F5F5F5',
+        'component-shadow' : '#D6D6D6'
+      },
+      maxHeight: {
+        '3xl': '48rem',
       }
     },
   },
