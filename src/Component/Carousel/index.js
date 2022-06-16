@@ -14,34 +14,13 @@ function Carousel() {
         data-bs-ride="carousel"
       >
         {/*Indicadores inferiores*/}
-        <div class="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">
-          <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="0"
-            class="active"
-            aria-current="true"
-            aria-label="Slide 1"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="1"
-            aria-label="Slide 2"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="2"
-            aria-label="Slide 3"
-          ></button>
-        </div>
+
         {/*Contenedor imagen principal y texto*/}
         {/*Parece que hay que alinear las imagenes primero, ya que ellas estan hacia la izquieda, 
         pero el papa div que contiene a todas las imagenes tiene todo el espacio. */}
         <div>
           {/*Div que contiene las imagenes */}
-          <div class="carousel-inner overflow-hidden grid grid-rows-2 justify-center ">
+          <div class="carousel-inner overflow-hidden grid grid-rows-3 justify-center ">
             <div class="carousel-item active content-center max-w-max">
               <p className="text-center">p</p>
               <img
@@ -49,6 +28,28 @@ function Carousel() {
                 className="max-h-96 max-w-96"
                 alt="Wild Landscape"
               />
+            </div>
+            <div class="carousel-indicators p-0 mb-4 text-center">
+              <button
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide-to="0"
+                class="active"
+                aria-current="true"
+                aria-label="Slide 1"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide-to="1"
+                aria-label="Slide 2"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide-to="2"
+                aria-label="Slide 3"
+              ></button>
             </div>
             <div className="p-4 text-left">
               <p className="text-subtitle-grey"> Nombre </p>
