@@ -13,14 +13,10 @@ function Carousel() {
         class="carousel slide relative"
         data-bs-ride="carousel"
       >
-        {/*Indicadores inferiores*/}
-
-        {/*Contenedor imagen principal y texto*/}
-        {/*Parece que hay que alinear las imagenes primero, ya que ellas estan hacia la izquieda, 
-        pero el papa div que contiene a todas las imagenes tiene todo el espacio. */}
+        {/*Contenedor imagen principal, texto e indicadores*/}        
         <div>
           {/*Div que contiene las imagenes */}
-          <div class="carousel-inner overflow-hidden grid grid-rows-3 justify-center ">
+          <div class="carousel-inner overflow-hidden grid grid-flow-rows-3 justify-center ">
             <div class="carousel-item active content-center max-w-max">
               <p className="text-center">p</p>
               <img
@@ -28,8 +24,9 @@ function Carousel() {
                 className="max-h-96 max-w-96"
                 alt="Wild Landscape"
               />
-            </div>
-            <div class="carousel-indicators p-0 mb-4 text-center">
+            </div>  
+            {/*Indicadores inferiores*/}
+            <div class="carousel-indicators p-0 mb-0 text-center">
               <button
                 type="button"
                 data-bs-target="#carouselExampleIndicators"
@@ -51,7 +48,8 @@ function Carousel() {
                 aria-label="Slide 3"
               ></button>
             </div>
-            <div className="p-4 text-left">
+            {/*Texto */}
+            <div className="px-4 p-b-4 text-left">
               <p className="text-subtitle-grey"> Nombre </p>
               <p className="text-xl pb-2">Maximus</p>
               <p className="text-subtitle-grey">Posicion</p>
