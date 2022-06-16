@@ -39,36 +39,37 @@ function Carousel() {
         {/*Contenedor imagen principal y texto*/}
         {/*Parece que hay que alinear las imagenes primero, ya que ellas estan hacia la izquieda, 
         pero el papa div que contiene a todas las imagenes tiene todo el espacio. */}
-        <div className="">
-            {/*Div que contiene las imagenes */}
-          <div class="carousel-inner relative overflow-hidden ">
-            <div class="carousel-item active float-right ">
+        <div>
+          {/*Div que contiene las imagenes */}
+          <div class="carousel-inner overflow-hidden grid grid-rows-2 justify-center ">
+            <div class="carousel-item active content-center max-w-max">
+              <p className="text-center">p</p>
               <img
                 src="https://imageserver.petsbest.com/marketing/blog/meeting-new-dogs.jpg"
                 className="max-h-96 max-w-96"
                 alt="Wild Landscape"
               />
             </div>
-            <div class="carousel-item float-left max-h-96 max-w-96">
+            <div className="p-4 text-left">
+              <p className="text-subtitle-grey"> Nombre </p>
+              <p className="text-xl pb-2">Maximus</p>
+              <p className="text-subtitle-grey">Posicion</p>
+              <p className="text-lg pb-2">hola</p>
+            </div>
+            {/* <div class="carousel-item float-left">
               <img
                 src="https://icalmpet.com/wp-content/uploads/iCalm-Pet-Solutions-Dog.jpg"
                 className="max-h-96 max-w-96"
                 alt="Camera"                
               />
             </div>
-            <div class="carousel-item float-left max-h-96 max-w-96">
+            <div class="carousel-item float-left">
               <img
                 src="https://petapixel.com/assets/uploads/2022/06/Breathtaking-Photos-of-Airborne-Dogs-Highlighted-by-Colorful-Holi-Paint07-800x800.jpg"
                 className="max-h-96 max-w-96"
                 alt="Exotic Fruits"                
               />
-            </div>
-          </div>
-          <div className="p-4 text-left">
-            <p className="text-subtitle-grey"> Nombre </p>
-            <p className="text-xl pb-2">Maximus</p>
-            <p className="text-subtitle-grey">Posicion</p>
-            <p className="text-lg pb-2">hola</p>
+            </div> */}
           </div>
         </div>
 
