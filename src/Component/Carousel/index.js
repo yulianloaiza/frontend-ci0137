@@ -15,30 +15,49 @@ function Carousel() {
         class="carousel relative "
         data-bs-ride="carousel"
       >
-        {/*Contenedor imagen principal, texto e indicadores*/}
+        {/*carousel-inner es todo lo que va a estar afectado por el cambio en flechas */}
         <div class="carousel-inner overflow-hidden grid grid-flow-rows-3 justify-center ">
-          {/*Div que contiene las imagenes */}
-          <div>
-            <div class="carousel-item active content-center max-w-max">
-              <img
-                src="https://imageserver.petsbest.com/marketing/blog/meeting-new-dogs.jpg"
-                className="max-h-96 max-w-96"
-                alt="Wild Landscape"
-              />
+          {/*Esta es una slide */}
+          <div class="carousel-item active content-center max-w-max">
+            <img
+              src="https://imageserver.petsbest.com/marketing/blog/meeting-new-dogs.jpg"
+              className="max-h-96 max-w-96"
+              alt="Wild Landscape"
+            />
+            <div className="pl-4 p-b-4 text-left">
+              <p className="text-subtitle-grey text-lg	">Nombre </p>
+              <p className="text-2xl max-w-xs pb-2">Teppanyaki</p>
+              <p className="text-subtitle-grey text-lg	">Organización</p>
+              <p className="text-xl max-w-xs pb-2">
+                Centro Municipal de Educación para el Cuido Animal
+              </p>
             </div>
-            <div class="carousel-item content-center max-w-max">
-              <img
-                src="https://icalmpet.com/wp-content/uploads/iCalm-Pet-Solutions-Dog.jpg"
-                className="max-h-96 max-w-96"
-                alt="Camera"
-              />
+          </div>
+          {/*Segunda slide */}
+          <div class="carousel-item content-center max-w-max">
+            <img
+              src="https://icalmpet.com/wp-content/uploads/iCalm-Pet-Solutions-Dog.jpg"
+              className="max-h-96 max-w-96"
+              alt="Camera"
+            />
+            <div className="pl-4 p-b-4 text-left">
+              <p className="text-subtitle-grey text-lg	">Nombre </p>
+              <p className="text-2xl max-w-xs pb-2">MAXIMUS</p>
+              <p className="text-subtitle-grey text-lg	">Organización</p>
+              <p className="text-xl max-w-xs pb-2">tapantakki</p>
             </div>
-            <div class="carousel-item content-center max-w-max">
-              <img
-                src="https://petapixel.com/assets/uploads/2022/06/Breathtaking-Photos-of-Airborne-Dogs-Highlighted-by-Colorful-Holi-Paint07-800x800.jpg"
-                className="max-h-96 max-w-96"
-                alt="Exotic Fruits"
-              />
+          </div>
+          <div class="carousel-item content-center max-w-max">
+            <img
+              src="https://petapixel.com/assets/uploads/2022/06/Breathtaking-Photos-of-Airborne-Dogs-Highlighted-by-Colorful-Holi-Paint07-800x800.jpg"
+              className="max-h-96 max-w-96"
+              alt="Exotic Fruits"
+            />
+            <div className="pl-4 p-b-4 text-left">
+              <p className="text-subtitle-grey text-lg	">Nombre </p>
+              <p className="text-2xl max-w-xs pb-2">DRAKE</p>
+              <p className="text-subtitle-grey text-lg	">Organización</p>
+              <p className="text-xl max-w-xs pb-2">Holá</p>
             </div>
           </div>
           {/*Indicadores inferiores*/}
@@ -63,13 +82,6 @@ function Carousel() {
               data-bs-slide-to="2"
               aria-label="Slide 3"
             ></button>
-          </div>
-          {/*Texto */}
-          <div className="px-4 p-b-4 text-left">
-            <p className="text-subtitle-grey"> Nombre </p>
-            <p className="text-xl pb-2">Maximus</p>
-            <p className="text-subtitle-grey">Posicion</p>
-            <p className="text-lg pb-2">hola</p>
           </div>
         </div>
         {/*Control atras y siguiente */}
