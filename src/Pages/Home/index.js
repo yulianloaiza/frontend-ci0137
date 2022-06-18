@@ -90,6 +90,7 @@ function App() {
             /*class="carousel slide relative"
         Pendiente ver como poder arreglar esa animacion entre slides. Antes se mostraba mal*/
             class="carousel relative "
+            data-bs-interval="false"
           >
             {/*carousel-inner es todo lo que va a estar afectado por el cambio en flechas */}
             <div class="carousel-inner overflow-hidden grid grid-flow-rows-3 justify-center ">
