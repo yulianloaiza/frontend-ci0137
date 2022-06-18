@@ -48,7 +48,7 @@ function App() {
         >
           {showItem === 0 && (
             <>
-              <p className="text-5xl font-bold">
+              <p className="text-3xl font-bold">
                 "UNO Todo fue demasiado lindo de verdad, es una luz especial
                 para nosotros"
               </p>
@@ -57,7 +57,7 @@ function App() {
           )}
           {showItem === 1 && (
             <>
-              <p className="text-5xl font-bold">
+              <p className="text-3xl font-bold">
                 "DOSDecidimos llevarla a casa por que nos habíamos enamorado de
                 ella. Hablé con mi esposo ya que ella es el tipo de perrita que
                 se adopta menos. Las personas creen que es uno quien adopta a
@@ -70,7 +70,7 @@ function App() {
           )}
           {showItem === 2 && (
             <>
-              <p className="text-5xl font-bold">
+              <p className="text-3xl font-bold">
                 "TRESTodo fue demasiado lindo de verdad, es una luz especial
                 para nosotros"
               </p>
