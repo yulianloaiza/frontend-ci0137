@@ -1,5 +1,6 @@
 import "tw-elements";
-import "./styles.css";
+import "./../../carouselStyle.css";
+
 /*
 Al igual que en ContentCard, aca se suben fotos de 800x800 pixeles
 Se puede agregar bool para indicadores o no. Pendiente ver si se pasa como parametro opcional
