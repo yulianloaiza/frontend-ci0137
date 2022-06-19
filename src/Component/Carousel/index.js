@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
 import "tw-elements";
-import "./../../carouselStyle.css";
 
 /*
 Al igual que en ContentCard, aca se suben fotos de 800x800 pixeles
@@ -29,7 +28,7 @@ function Carousel() {
     <>
       {/*Inicia Carrusel */}
       <div
-        id="carouselExampleIndicators"
+        id="imageCarousel"
         /*class="carousel slide relative"
         Pendiente ver como poder arreglar esa animacion entre slides. Antes se mostraba mal*/
         class="carousel relative "
@@ -72,21 +71,21 @@ function Carousel() {
                 src="https://icalmpet.com/wp-content/uploads/iCalm-Pet-Solutions-Dog.jpg"
                 className="max-h-20 rounded"
                 alt="Camera"
-                data-bs-target="#carouselExampleIndicators"
+                data-bs-target="#imageCarousel"
                 data-bs-slide-to="0"
               />
               <img
                 src="https://imageserver.petsbest.com/marketing/blog/meeting-new-dogs.jpg"
                 className="max-h-20 rounded"
                 alt="Exotic Fruits"
-                data-bs-target="#carouselExampleIndicators"
+                data-bs-target="#imageCarousel"
                 data-bs-slide-to="1"
               />
               <img
                 src="https://petapixel.com/assets/uploads/2022/06/Breathtaking-Photos-of-Airborne-Dogs-Highlighted-by-Colorful-Holi-Paint07-800x800.jpg"
                 className="max-h-20 rounded"
                 alt="Wild Landscape"
-                data-bs-target="#carouselExampleIndicators"
+                data-bs-target="#imageCarousel"
                 data-bs-slide-to="2"
               />
               <img
@@ -132,7 +131,7 @@ function Carousel() {
         <button
           class="carousel-control-prev carousel-dark absolute top-0 bottom-24 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
           type="button"
-          data-bs-target="#carouselExampleIndicators"
+          data-bs-target="#imageCarousel"
           data-bs-slide="prev"
         >
           <span
@@ -144,7 +143,7 @@ function Carousel() {
         <button
           class="carousel-control-next carousel-dark absolute top-0 bottom-24 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0"
           type="button"
-          data-bs-target="#carouselExampleIndicators"
+          data-bs-target="#imageCarousel"
           data-bs-slide="next"
         >
           <span

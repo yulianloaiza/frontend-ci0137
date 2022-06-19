@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "tw-elements";
-import "./../../carouselStyle.css";
 import Header from "../../Component/Header";
 import Button from "../../Component/Button";
 import ContentCard from "../../Component/ContentCard";
@@ -86,7 +85,7 @@ function App() {
         >
           {/*Inicia Carrusel */}
           <div
-            id="carouselExampleIndicators"
+            id="imageCarousel"
             /*class="carousel slide relative"
         Pendiente ver como poder arreglar esa animacion entre slides. Antes se mostraba mal*/
             class="carousel relative "
@@ -141,7 +140,7 @@ function App() {
               <div class="carousel-indicators p-0 mb-0 text-center">
                 <button
                   type="button"
-                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-target="#imageCarousel"
                   data-bs-slide-to="0"
                   class="active"
                   aria-current="true"
@@ -150,14 +149,14 @@ function App() {
                 ></button>
                 <button
                   type="button"
-                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-target="#imageCarousel"
                   data-bs-slide-to="1"
                   aria-label="Slide 2"
                   onClick={() => changeText("none", 1)}
                 ></button>
                 <button
                   type="button"
-                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-target="#imageCarousel"
                   data-bs-slide-to="2"
                   aria-label="Slide 3"
                   onClick={() => changeText("none", 2)}
@@ -168,7 +167,7 @@ function App() {
             <button
               class="carousel-control-prev carousel-dark absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
               type="button"
-              data-bs-target="#carouselExampleIndicators"
+              data-bs-target="#imageCarousel"
               data-bs-slide="prev"
               onClick={() => changeText("prev")}
             >
@@ -181,7 +180,7 @@ function App() {
             <button
               class="carousel-control-next carousel-dark absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0"
               type="button"
-              data-bs-target="#carouselExampleIndicators"
+              data-bs-target="#imageCarousel"
               data-bs-slide="next"
               onClick={() => changeText("next")}
             >
