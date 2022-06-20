@@ -4,6 +4,7 @@ import Animals from "../Animals";
 import Organizations from "../Organizations";
 import About from "../About";
 import AnimalInfo from "../AnimalInfo";
+import OrganizationInfo from "../OrganizationInfo";
 
 //Del momento solo esta como relleno para ir probando componentes
 // No estoy seguro como debe ir la pagina de cada animal especifico
@@ -18,6 +19,7 @@ function App() {
         <Route path="/About" element={<About />} />
         
         <Route path="/AnimalInfo" element={<AnimalInfo />} />
+        <Route path="/OrganizationInfo" element={<OrganizationInfo />} />
       </Routes>
     </BrowserRouter>
   );

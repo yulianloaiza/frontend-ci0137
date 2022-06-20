@@ -47,37 +47,40 @@ function AnimalInfo() {
           >
             <div className="p-4 text-left">
               <p className="text-subtitle-grey">Nombre </p>
-              <p className="text-xl pb-2">Nombre del animal</p>
-              <p className="text-subtitle-grey">Organización </p>
               <p className="text-xl pb-2">
                 Centro Municipal de Educación para el Cuido Animal
               </p>
-              <p className="text-subtitle-grey">Tamaño</p>
-              <p className="text-lg pb-2">Pequeño </p>
-              <p className="text-subtitle-grey">Género </p>
-              <p className="text-lg pb-2">Hembra </p>
-              <p className="text-subtitle-grey">Ubicación </p>
+              <p className="text-subtitle-grey">Ubicación</p>
               <p className="text-lg pb-2">La provincia </p>
-              <p className="text-subtitle-grey">Edad </p>
-              <p className="text-lg pb-2">2 </p>
+              <p className="text-subtitle-grey">Teléfono </p>
+              <p className="text-lg pb-2">+506 88888888 </p>
+              <p className="text-subtitle-grey">Correo electrónico </p>
+              <p className="text-lg pb-2">ejemplo@gmail.com </p>
               <p className="text-subtitle-grey">Descripción </p>
               <p className="text-lg pb-2">
-                Cuando nos pidieron ayuda para Apolonio, las fotos eran de un
-                perro flaco con las uñas más largas que jamás vimos, es obvio
-                que estaba dentro de una casa o propiedad donde no tenía que
-                caminar, en el 2017 se le calcularon 10 años de edad, No sabemos
-                si se perdió o lo botaron, con la uñas ya sabemos por qué
-                estaban tan largas, para cortarlas necesitamos por lo menos 3
-                personas por que odia que se las corten, después de eso no tiene
-                ningún problema, cuando llego al albergue se le dio tratamiento
-                de erlichia. Es un perro muy bueno, le encanta que lo toquen,
-                los cachorros son su debilidad los cuida y los defiende como si
-                fueran de el. Apolonio es un perro grande con un corazón de
-                cachorro, merece una buena familia.
+                We are a private no kill sanctuary founded in 2000 with the
+                capacity to shelter up to 200 dogs and cats, many of whom have
+                been victims of animal abuse or cruelty, are senior animals or
+                have special needs. Unlike other shelters that emphasize
+                adoption but euthanize the un-adoptable, the mission of Animales
+                de Asis is to find forever homes for adoptable animals and to
+                provide lifetime care and shelter for those who are unable to be
+                placed. Founder and Director Karin Hoad believes that every dog
+                and cat’s life is worth saving and that every animal deserves a
+                quality of life. Animales de Asis is a Costa Rican nonprofit
+                association funded exclusively by donations. The sanctuary,
+                located in Alto del Roble in Heredia, serves the entire Central
+                Valley, and provides food, shelter, medical treatment, and most
+                importantly, much needed nurturing. “For me, rescuing animals is
+                not a hobby, it’s not a fad, its a lifestyle. My purpose for
+                living is to change the lives of animals in need —to give them
+                hope, to give them love, to give them care— to give them the
+                family they so deserve.” – Karin Hoad, Founder of Animales de
+                Asis Santuario
               </p>
             </div>
             <div className="text-center mb-6 ">
-              <Button text="Adoptar" width={40} />
+              <Button text="Animales" width={40} />
             </div>
           </div>
         </div>
