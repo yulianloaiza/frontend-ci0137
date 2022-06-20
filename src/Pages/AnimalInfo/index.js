@@ -1,22 +1,21 @@
 import Header from "../../Component/Header";
 import Footer from "../../Component/Footer";
 import Carousel from "../../Component/Carousel";
+import Button from "../../Component/Button";
 //Cambiar el nombre cuando se resuelva la duda con el profe del nombre de la ruta.
 
-
-  /*
+/*
 Aca se usa un arreglo de imagenes solo para fines ilustrativos
 En realidad se debe agarrrar del backend.
 El texto tambien se deberia jalar del backend
           */
-
 
 function AnimalInfo() {
   /*arreglo de imagenes solo para fines ilustrativos
             En realidad se debe agarrrar del backend*/
   const imgArray = [
     "https://icalmpet.com/wp-content/uploads/iCalm-Pet-Solutions-Dog.jpg",
-    "https://imageserver.petsbest.com/marketing/blog/meeting-new-dogs.jpg",        
+    "https://imageserver.petsbest.com/marketing/blog/meeting-new-dogs.jpg",
     "https://petapixel.com/assets/uploads/2022/06/Breathtaking-Photos-of-Airborne-Dogs-Highlighted-by-Colorful-Holi-Paint07-800x800.jpg",
     "https://gray-kcbd-prod.cdn.arcpublishing.com/resizer/SQif8hGoA6PNTFUsqV5sEpUbUBU=/800x800/smart/filters:quality(70)/cloudfront-us-east-1.images.arcpublishing.com/gray/STCTNNN5SBCQ7L34YV7WD36APA.jpg",
     "https://d2zp5xs5cp8zlg.cloudfront.net/image-35477-800.jpg",
@@ -25,23 +24,51 @@ function AnimalInfo() {
   return (
     <>
       <div className="bg-light-gold">
-        <Header />
-        {/*Pendiente como establecer la altura*/}
+        <Header />        
         <div
           className="px-4 md:px-8 lg:px-20 pb-4 mb-8
             grid grid-cols-2 "
         >
-          {/*Columna izquierda
-        Pendiente como acomodar el texto de aca y si hay un limite en tamano
-        Texto condicional dependiendo de en donde estamos en los slides*/}
+          {/*Columna izquierda*/}
           <div
             className="bg-idle-grey rounded
             px-4 md:px-8 lg:px-20 py-4 mb-8"
           >
-            <p className="text-3xl font-bold">
-              Texto solo por mientras, se debe rellenar.
-            </p>
-            <p className="text-xl">-Tal ves autora</p>
+            <div className="p-4 text-left">
+              <p className="text-subtitle-grey">Nombre </p>
+              <p className="text-xl pb-2">Nombre del animal</p>
+              <p className="text-subtitle-grey">Ubicación</p>
+              <p className="text-lg pb-2">La provincia </p>
+              <p className="text-subtitle-grey">Teléfono </p>
+              <p className="text-lg pb-2">+506 88888888 </p>
+              <p className="text-subtitle-grey">Correo electrónico </p>
+              <p className="text-lg pb-2">ejemplo@gmail.com </p>
+              <p className="text-subtitle-grey">Descripción </p>
+              <p className="text-lg pb-2">
+                We are a private no kill sanctuary founded in 2000 with the
+                capacity to shelter up to 200 dogs and cats, many of whom have
+                been victims of animal abuse or cruelty, are senior animals or
+                have special needs. Unlike other shelters that emphasize
+                adoption but euthanize the un-adoptable, the mission of Animales
+                de Asis is to find forever homes for adoptable animals and to
+                provide lifetime care and shelter for those who are unable to be
+                placed. Founder and Director Karin Hoad believes that every dog
+                and cat’s life is worth saving and that every animal deserves a
+                quality of life. Animales de Asis is a Costa Rican nonprofit
+                association funded exclusively by donations. The sanctuary,
+                located in Alto del Roble in Heredia, serves the entire Central
+                Valley, and provides food, shelter, medical treatment, and most
+                importantly, much needed nurturing. “For me, rescuing animals is
+                not a hobby, it’s not a fad, its a lifestyle. My purpose for
+                living is to change the lives of animals in need —to give them
+                hope, to give them love, to give them care— to give them the
+                family they so deserve.” – Karin Hoad, Founder of Animales de
+                Asis Santuario
+              </p>
+            </div>
+            <div className="text-center mb-6 ">
+              <Button text="Adoptar" width={40} />
+            </div>
           </div>
           {/*Columna derecha*/}
           <div
