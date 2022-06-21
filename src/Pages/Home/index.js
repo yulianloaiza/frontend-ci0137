@@ -8,15 +8,38 @@ import Footer from "../../Component/Footer";
 
 //Del momento solo esta como relleno para ir probando componentes
 
-//Background color pending. No me funciona el margen derecho
-
+//Background color pending. No me funciona el margen derecho en banner
 /* <div className="w-full h-64 bg-red-800 top-0 left-0 absolute opacity-40
          mx-4 md:mx-8 lg:mx-20"></div> */
 
-//Pendiente agregarle color a los textos.
-
 function App() {
   const [showItem, setShowItem] = useState(0);
+  /*arreglo de historias exito solo para fines ilustrativos
+            En realidad se debe agarrrar del backend
+            nombre, organizacion, descripcion, autora, imagen */
+  const histExito = [
+    [
+      "1Teppanyaki",
+      "Centro Municipal de Educación para el Cuido Animal",
+      "UNO Todo fue demasiado lindo de verdad, es una luz especial para nosotros",
+      "-La Maga del octavo",
+      "https://imageserver.petsbest.com/marketing/blog/meeting-new-dogs.jpg",
+    ],
+    [
+      "2MAXIMUS",
+      "tapantakki",
+      "DOSDecidimos llevarla a casa por que nos habíamos enamorado de ella. Hablé con mi esposo ya que ella es el tipo de perrita que se adopta menos. Las personas creen que es uno quien adopta a los perros, pero ellos son quien nos adoptan. Ella nos hace muy felices, y trae mucha alegría a la casa. No hay duda que ha sido la experiencia más fantástica que hemos tenido.",
+      "-La autora",
+      "https://icalmpet.com/wp-content/uploads/iCalm-Pet-Solutions-Dog.jpg",
+    ],
+    [
+      "3DRAKE",
+      "Holá",
+      "TRESTodo fue demasiado lindo de verdad, es una luz especial para nosotros",
+      "-Inés Hernandez de la O",
+      "https://petapixel.com/assets/uploads/2022/06/Breathtaking-Photos-of-Airborne-Dogs-Highlighted-by-Colorful-Holi-Paint07-800x800.jpg",
+    ],
+  ];
 
   //Solo nos devolvemos cuando llegamos la ultima slide
   function changeText(direction, currentSlide = showItem) {
@@ -32,110 +55,61 @@ function App() {
   return (
     <div className="bg-light-gold">
       <Header />
-      {/*Probando historias exito 
-      Pendiente como establecer la altura*/}
       <div
         className="px-4 md:px-8 lg:px-20 pb-4 mb-8
-    grid grid-cols-2 "
+    grid grid-cols-2"
       >
-        {/*Columna izquierda
-        Pendiente como acomodar el texto de aca y si hay un limite en tamano
-        Texto condicional dependiendo de en donde estamos en los slides*/}
+        {/*Columna izquierda */}
         <div
           className="bg-idle-grey rounded
         px-4 md:px-8 lg:px-20 py-4 mb-8 flex items-center"
         >
-          {showItem === 0 && (            
-            <div>                        
-              <p className="text-3xl font-bold">
-                "UNO Todo fue demasiado lindo de verdad, es una luz especial
-                para nosotros"
-              </p>
-              <p className="text-xl text-right">-Tal ves autora</p>
-            </div>
-          )}
-          {showItem === 1 && (
-            <div>
-              <p className="text-3xl font-bold">
-                "DOSDecidimos llevarla a casa por que nos habíamos enamorado de
-                ella. Hablé con mi esposo ya que ella es el tipo de perrita que
-                se adopta menos. Las personas creen que es uno quien adopta a
-                los perros, pero ellos son quien nos adoptan. Ella nos hace muy
-                felices, y trae mucha alegría a la casa. No hay duda que ha sido
-                la experiencia más fantástica que hemos tenido."
-              </p>
-              <p className="text-xl text-right">-Tal ves autora</p>
-            </div>
-          )}
-          {showItem === 2 && (
-            <div>
-              <p className="text-3xl font-bold">
-                "TRESTodo fue demasiado lindo de verdad, es una luz especial
-                para nosotros"
-              </p>
-              <p className="text-xl text-right">-Tal ves autora</p>
-            </div>
-          )}
+          {histExito.map((i, index) => {
+            return (
+              showItem === index && (
+                <div>
+                  <p className="text-3xl font-bold">{i[2]}</p>
+                  <p className="text-xl text-right">{i[3]}</p>
+                </div>
+              )
+            );
+          })}
         </div>
         {/*Columna derecha*/}
         <div
           className="bg-component-shadow rounded
         px-4 md:px-8 lg:px-20 py-4 mb-8         
-        max-w-3xl "
+        max-w-3xl"
         >
           {/*Inicia Carrusel */}
           <div
             id="imageCarousel"
-            /*className="carousel slide relative"
-        Pendiente ver como poder arreglar esa animacion entre slides. Antes se mostraba mal*/
             className="carousel relative "
             data-bs-interval="false"
           >
             {/*carousel-inner es todo lo que va a estar afectado por el cambio en flechas */}
             <div className="carousel-inner overflow-hidden grid grid-flow-rows-3 justify-center ">
-              {/*Esta es una slide */}
-              <div className="carousel-item active content-center max-w-max">
-                <img
-                  src="https://imageserver.petsbest.com/marketing/blog/meeting-new-dogs.jpg"
-                  className="max-h-96 max-w-96 rounded"
-                  alt="Wild Landscape"
-                />
-                <div className="p-b-4 text-left">
-                  <p className="text-subtitle-grey text-lg	">Nombre </p>
-                  <p className="text-2xl max-w-xs pb-2">1Teppanyaki</p>
-                  <p className="text-subtitle-grey text-lg	">Organización</p>
-                  <p className="text-xl max-w-xs pb-2">
-                    Centro Municipal de Educación para el Cuido Animal
-                  </p>
-                </div>
-              </div>
-              {/*Segunda slide */}
-              <div className="carousel-item content-center max-w-max">
-                <img
-                  src="https://icalmpet.com/wp-content/uploads/iCalm-Pet-Solutions-Dog.jpg"
-                  className="max-h-96 max-w-96 rounded"
-                  alt="Camera"
-                />
-                <div className="p-b-4 text-left">
-                  <p className="text-subtitle-grey text-lg	">Nombre </p>
-                  <p className="text-2xl max-w-xs pb-2">2MAXIMUS</p>
-                  <p className="text-subtitle-grey text-lg	">Organización</p>
-                  <p className="text-xl max-w-xs pb-2">tapantakki</p>
-                </div>
-              </div>
-              <div className="carousel-item content-center max-w-max">
-                <img
-                  src="https://petapixel.com/assets/uploads/2022/06/Breathtaking-Photos-of-Airborne-Dogs-Highlighted-by-Colorful-Holi-Paint07-800x800.jpg"
-                  className="max-h-96 max-w-96 rounded"
-                  alt="Exotic Fruits"
-                />
-                <div className="p-b-4 text-left">
-                  <p className="text-subtitle-grey text-lg	">Nombre </p>
-                  <p className="text-2xl max-w-xs pb-2">3DRAKE</p>
-                  <p className="text-subtitle-grey text-lg	">Organización</p>
-                  <p className="text-xl max-w-xs pb-2">Holá</p>
-                </div>
-              </div>
+              {histExito.map((i, index) => {
+                return (
+                  <div
+                    className={`carousel-item ${
+                      index === 0 ? "active" : ""
+                    } content-center max-w-max`}
+                  >
+                    <img
+                      src={i[4]}
+                      className="max-h-96 max-w-96 rounded"
+                      alt="Imagen principal"
+                    />
+                    <div className="p-b-4 text-left">
+                      <p className="text-subtitle-grey text-lg	">Nombre </p>
+                      <p className="text-2xl max-w-xs pb-2">{i[0]}</p>
+                      <p className="text-subtitle-grey text-lg	">Organización</p>
+                      <p className="text-xl max-w-xs pb-2">{i[1]}</p>
+                    </div>
+                  </div>
+                );
+              })}
               {/*Indicadores inferiores*/}
               <div className="carousel-indicators p-0 mb-0 text-center">
                 <button

@@ -1,11 +1,12 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import "tw-elements";
 
 /*
 Al igual que en ContentCard, aca se suben fotos de 800x800 pixeles
 */
 function Carousel({ images }) {
-  const sliderRef = useRef();  
+  const sliderRef = useRef();
+  const [showItem, setShowItem] = useState(0);
 
   //Botones del slider para moverse a la izquierda o derecha.
   function buttonScroll(direction) {
@@ -21,6 +22,38 @@ function Carousel({ images }) {
       });
     }
   }
+
+  function changeImage(direction) {
+    //Sumar o restar, o bien manejar caso frontera.
+    const totalImages = images.length - 1;
+    if (direction === "forward") {
+      if (showItem < totalImages) {
+        setShowItem(showItem + 1);
+      } else if (showItem === totalImages) {
+        setShowItem(0);
+        buttonScroll("back");
+      }
+    } else {
+      if (showItem > 0) {
+        setShowItem(showItem - 1);
+      } else if (showItem === 0) {
+        setShowItem(totalImages);
+        buttonScroll("forward");
+      }
+    }
+  }
+
+  //Cada vez que se actualiza showItem corremos esta funcion.
+  //Nos permite saber cuando tenemos que mover el slider de abajo
+  useEffect(() => {
+    const imagesPreviewed = 3; //Ya que el indice empieza en 0
+    if (showItem % imagesPreviewed > 0 && showItem > imagesPreviewed) {
+      //Debemos movernos a la derecha
+      buttonScroll("forward");
+    } else if (showItem % imagesPreviewed > 0) {
+      buttonScroll("back");
+    }
+  }, [showItem]);
 
   return (
     <>
@@ -58,14 +91,15 @@ function Carousel({ images }) {
                 return (
                   <img
                     src={i}
-                    className="max-h-20 rounded"
+                    className="max-h-20 rounded cursor-pointer"
                     alt="Visualización previa"
                     data-bs-target="#imageCarousel"
                     data-bs-slide-to={index.toString()}
+                    onClick={() => setShowItem(index.toString())}
                   />
                 );
               })}
-              {/*Botones prev y next*/}
+              {/*Botones prev y next de thumbnails*/}
               <button
                 className="absolute top-8 left-0 text-3xl font-bold carousel-dark bg-component-shadow rounded-full opacity-80"
                 onClick={() => buttonScroll("back")}
@@ -87,12 +121,13 @@ function Carousel({ images }) {
             </div>
           </div>
         </div>
-        {/*Control atras y siguiente */}
+        {/*Control atras y siguiente*/}
         <button
           className="carousel-control-prev carousel-dark absolute top-0 bottom-24 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
           type="button"
           data-bs-target="#imageCarousel"
           data-bs-slide="prev"
+          onClick={() => changeImage("back")}
         >
           <span
             className="carousel-control-prev-icon inline-block bg-no-repeat"
@@ -104,6 +139,7 @@ function Carousel({ images }) {
           type="button"
           data-bs-target="#imageCarousel"
           data-bs-slide="next"
+          onClick={() => changeImage("forward")}
         >
           <span
             className="carousel-control-next-icon inline-block bg-no-repeat"

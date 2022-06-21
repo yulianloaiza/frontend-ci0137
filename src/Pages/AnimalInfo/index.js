@@ -77,7 +77,7 @@ function AnimalInfo() {
               </p>
             </div>
             <div className="text-center mb-6 ">
-              <Button text="Adoptar" width={40} />
+              <Button text="Adoptar" width={"full"} />
             </div>
           </div>
         </div>

@@ -23,7 +23,7 @@ module.exports = {
   plugins: [
     require("tw-elements/dist/plugin"),
     plugin(function ({ addUtilities }) {
-      addUtilities({        
+      addUtilities({
         ".scrollbar-hide": {
           /* IE and Edge */
           "-ms-overflow-style": "none",

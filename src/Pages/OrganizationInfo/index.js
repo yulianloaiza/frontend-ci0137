@@ -80,7 +80,7 @@ function AnimalInfo() {
               </p>
             </div>
             <div className="text-center mb-6 ">
-              <Button text="Animales" width={40} />
+              <Button text="Animales" width={"full"} />
             </div>
           </div>
         </div>
