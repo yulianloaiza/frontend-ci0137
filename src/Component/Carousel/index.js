@@ -5,8 +5,7 @@ import "tw-elements";
 Al igual que en ContentCard, aca se suben fotos de 800x800 pixeles
 */
 function Carousel({ images }) {
-  const sliderRef = useRef();
-  let firstItem = true;
+  const sliderRef = useRef();  
 
   //Botones del slider para moverse a la izquierda o derecha.
   function buttonScroll(direction) {
@@ -28,34 +27,25 @@ function Carousel({ images }) {
       {/*Inicia Carrusel */}
       <div
         id="imageCarousel"
-        class="carousel relative "
+        className="carousel relative "
         data-bs-interval="false"
       >
         {/*carousel-inner es todo lo que va a estar afectado por el cambio en flechas. Aca estan las slides.
         Se hace map en los elementos internos de las divisiones*/}
-        <div class="carousel-inner overflow-hidden grid grid-flow-rows-3 justify-center">
-          {images.map((i) => {
+        <div className="carousel-inner overflow-hidden grid grid-flow-rows-3 justify-center">
+          {images.map((i, index) => {
             return (
-              <>
-                {firstItem === true ? (
-                  <div class="carousel-item active content-center max-w-max">
-                    <img
-                      src={i}
-                      className="max-h-96 max-w-96 rounded-t"
-                      alt="Imagen principal"
-                    />
-                  </div>
-                ) : (
-                  <div class="carousel-item content-center max-w-max">
-                    <img
-                      src={i}
-                      className="max-h-96 max-w-96 rounded-t"
-                      alt="Imagen principal"
-                    />
-                  </div>
-                )}
-                {(firstItem = false)}
-              </>
+              <div
+                className={`carousel-item ${
+                  index === 0 ? "active" : ""
+                } content-center max-w-max`}
+              >
+                <img
+                  src={i}
+                  className="max-h-96 max-w-96 rounded-t"
+                  alt="Imagen principal"
+                />
+              </div>
             );
           })}
           {/*Thumbnail slider */}
@@ -81,7 +71,7 @@ function Carousel({ images }) {
                 onClick={() => buttonScroll("back")}
               >
                 <span
-                  class="carousel-control-prev-icon inline-block bg-no-repeat max-h-5"
+                  className="carousel-control-prev-icon inline-block bg-no-repeat max-h-5"
                   aria-hidden="true"
                 ></span>
               </button>
@@ -90,7 +80,7 @@ function Carousel({ images }) {
                 onClick={() => buttonScroll("forward")}
               >
                 <span
-                  class="carousel-control-next-icon inline-block bg-no-repeat max-h-5"
+                  className="carousel-control-next-icon inline-block bg-no-repeat max-h-5"
                   aria-hidden="true"
                 ></span>
               </button>
@@ -99,24 +89,24 @@ function Carousel({ images }) {
         </div>
         {/*Control atras y siguiente */}
         <button
-          class="carousel-control-prev carousel-dark absolute top-0 bottom-24 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
+          className="carousel-control-prev carousel-dark absolute top-0 bottom-24 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
           type="button"
           data-bs-target="#imageCarousel"
           data-bs-slide="prev"
         >
           <span
-            class="carousel-control-prev-icon inline-block bg-no-repeat"
+            className="carousel-control-prev-icon inline-block bg-no-repeat"
             aria-hidden="true"
           ></span>
         </button>
         <button
-          class="carousel-control-next carousel-dark absolute top-0 bottom-24 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0"
+          className="carousel-control-next carousel-dark absolute top-0 bottom-24 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0"
           type="button"
           data-bs-target="#imageCarousel"
           data-bs-slide="next"
         >
           <span
-            class="carousel-control-next-icon inline-block bg-no-repeat"
+            className="carousel-control-next-icon inline-block bg-no-repeat"
             aria-hidden="true"
           ></span>
         </button>

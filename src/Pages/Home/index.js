@@ -43,19 +43,19 @@ function App() {
         Texto condicional dependiendo de en donde estamos en los slides*/}
         <div
           className="bg-idle-grey rounded
-        px-4 md:px-8 lg:px-20 py-4 mb-8"
+        px-4 md:px-8 lg:px-20 py-4 mb-8 flex items-center"
         >
-          {showItem === 0 && (
-            <>
+          {showItem === 0 && (            
+            <div>                        
               <p className="text-3xl font-bold">
                 "UNO Todo fue demasiado lindo de verdad, es una luz especial
                 para nosotros"
               </p>
-              <p className="text-xl">-Tal ves autora</p>
-            </>
+              <p className="text-xl text-right">-Tal ves autora</p>
+            </div>
           )}
           {showItem === 1 && (
-            <>
+            <div>
               <p className="text-3xl font-bold">
                 "DOSDecidimos llevarla a casa por que nos habíamos enamorado de
                 ella. Hablé con mi esposo ya que ella es el tipo de perrita que
@@ -64,17 +64,17 @@ function App() {
                 felices, y trae mucha alegría a la casa. No hay duda que ha sido
                 la experiencia más fantástica que hemos tenido."
               </p>
-              <p className="text-xl">-Tal ves autora</p>
-            </>
+              <p className="text-xl text-right">-Tal ves autora</p>
+            </div>
           )}
           {showItem === 2 && (
-            <>
+            <div>
               <p className="text-3xl font-bold">
                 "TRESTodo fue demasiado lindo de verdad, es una luz especial
                 para nosotros"
               </p>
-              <p className="text-xl">-Tal ves autora</p>
-            </>
+              <p className="text-xl text-right">-Tal ves autora</p>
+            </div>
           )}
         </div>
         {/*Columna derecha*/}
@@ -86,21 +86,21 @@ function App() {
           {/*Inicia Carrusel */}
           <div
             id="imageCarousel"
-            /*class="carousel slide relative"
+            /*className="carousel slide relative"
         Pendiente ver como poder arreglar esa animacion entre slides. Antes se mostraba mal*/
-            class="carousel relative "
+            className="carousel relative "
             data-bs-interval="false"
           >
             {/*carousel-inner es todo lo que va a estar afectado por el cambio en flechas */}
-            <div class="carousel-inner overflow-hidden grid grid-flow-rows-3 justify-center ">
+            <div className="carousel-inner overflow-hidden grid grid-flow-rows-3 justify-center ">
               {/*Esta es una slide */}
-              <div class="carousel-item active content-center max-w-max">
+              <div className="carousel-item active content-center max-w-max">
                 <img
                   src="https://imageserver.petsbest.com/marketing/blog/meeting-new-dogs.jpg"
-                  className="max-h-96 max-w-96"
+                  className="max-h-96 max-w-96 rounded"
                   alt="Wild Landscape"
                 />
-                <div className="pl-4 p-b-4 text-left">
+                <div className="p-b-4 text-left">
                   <p className="text-subtitle-grey text-lg	">Nombre </p>
                   <p className="text-2xl max-w-xs pb-2">1Teppanyaki</p>
                   <p className="text-subtitle-grey text-lg	">Organización</p>
@@ -110,26 +110,26 @@ function App() {
                 </div>
               </div>
               {/*Segunda slide */}
-              <div class="carousel-item content-center max-w-max">
+              <div className="carousel-item content-center max-w-max">
                 <img
                   src="https://icalmpet.com/wp-content/uploads/iCalm-Pet-Solutions-Dog.jpg"
-                  className="max-h-96 max-w-96"
+                  className="max-h-96 max-w-96 rounded"
                   alt="Camera"
                 />
-                <div className="pl-4 p-b-4 text-left">
+                <div className="p-b-4 text-left">
                   <p className="text-subtitle-grey text-lg	">Nombre </p>
                   <p className="text-2xl max-w-xs pb-2">2MAXIMUS</p>
                   <p className="text-subtitle-grey text-lg	">Organización</p>
                   <p className="text-xl max-w-xs pb-2">tapantakki</p>
                 </div>
               </div>
-              <div class="carousel-item content-center max-w-max">
+              <div className="carousel-item content-center max-w-max">
                 <img
                   src="https://petapixel.com/assets/uploads/2022/06/Breathtaking-Photos-of-Airborne-Dogs-Highlighted-by-Colorful-Holi-Paint07-800x800.jpg"
-                  className="max-h-96 max-w-96"
+                  className="max-h-96 max-w-96 rounded"
                   alt="Exotic Fruits"
                 />
-                <div className="pl-4 p-b-4 text-left">
+                <div className="p-b-4 text-left">
                   <p className="text-subtitle-grey text-lg	">Nombre </p>
                   <p className="text-2xl max-w-xs pb-2">3DRAKE</p>
                   <p className="text-subtitle-grey text-lg	">Organización</p>
@@ -137,12 +137,12 @@ function App() {
                 </div>
               </div>
               {/*Indicadores inferiores*/}
-              <div class="carousel-indicators p-0 mb-0 text-center">
+              <div className="carousel-indicators p-0 mb-0 text-center">
                 <button
                   type="button"
                   data-bs-target="#imageCarousel"
                   data-bs-slide-to="0"
-                  class="active"
+                  className="active"
                   aria-current="true"
                   aria-label="Slide 1"
                   onClick={() => changeText("none", 0)}
@@ -165,30 +165,30 @@ function App() {
             </div>
             {/*Control atras y siguiente */}
             <button
-              class="carousel-control-prev carousel-dark absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
+              className="carousel-control-prev carousel-dark absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
               type="button"
               data-bs-target="#imageCarousel"
               data-bs-slide="prev"
               onClick={() => changeText("prev")}
             >
               <span
-                class="carousel-control-prev-icon inline-block bg-no-repeat"
+                className="carousel-control-prev-icon inline-block bg-no-repeat"
                 aria-hidden="true"
               ></span>
-              <span class="visually-hidden">Previous</span>
+              <span className="visually-hidden">Previous</span>
             </button>
             <button
-              class="carousel-control-next carousel-dark absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0"
+              className="carousel-control-next carousel-dark absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0"
               type="button"
               data-bs-target="#imageCarousel"
               data-bs-slide="next"
               onClick={() => changeText("next")}
             >
               <span
-                class="carousel-control-next-icon inline-block bg-no-repeat"
+                className="carousel-control-next-icon inline-block bg-no-repeat"
                 aria-hidden="true"
               ></span>
-              <span class="visually-hidden">Next</span>
+              <span className="visually-hidden">Next</span>
             </button>
           </div>
           {/*Termina Carrusel */}
@@ -216,7 +216,7 @@ function App() {
         />
       </div>
 
-      <div class="flex space-x-2 content-center justify-center">
+      <div className="flex space-x-2 content-center justify-center">
         <Button text={"Adoptar"} />
       </div>
 
