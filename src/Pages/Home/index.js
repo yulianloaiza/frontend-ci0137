@@ -24,7 +24,6 @@ function App() {
       "UNO Todo fue demasiado lindo de verdad, es una luz especial para nosotros",
       "-La Maga del octavo",
       "https://imageserver.petsbest.com/marketing/blog/meeting-new-dogs.jpg",
-      0,
     ],
     [
       "2MAXIMUS",
@@ -32,7 +31,6 @@ function App() {
       "DOSDecidimos llevarla a casa por que nos habíamos enamorado de ella. Hablé con mi esposo ya que ella es el tipo de perrita que se adopta menos. Las personas creen que es uno quien adopta a los perros, pero ellos son quien nos adoptan. Ella nos hace muy felices, y trae mucha alegría a la casa. No hay duda que ha sido la experiencia más fantástica que hemos tenido.",
       "-La autora",
       "https://icalmpet.com/wp-content/uploads/iCalm-Pet-Solutions-Dog.jpg",
-      1,
     ],
     [
       "3DRAKE",
@@ -40,7 +38,6 @@ function App() {
       "TRESTodo fue demasiado lindo de verdad, es una luz especial para nosotros",
       "-Inés Hernandez de la O",
       "https://petapixel.com/assets/uploads/2022/06/Breathtaking-Photos-of-Airborne-Dogs-Highlighted-by-Colorful-Holi-Paint07-800x800.jpg",
-      2,
     ],
   ];
 
@@ -70,7 +67,7 @@ function App() {
           {histExito.map((i, index) => {
             return (
               showItem === index && (
-                <div>
+                <div key={`text_${index}`}>
                   <p className="text-3xl font-bold">{i[2]}</p>
                   <p className="text-xl text-right">{i[3]}</p>
                 </div>
@@ -95,6 +92,7 @@ function App() {
               {histExito.map((i, index) => {
                 return (
                   <div
+                    key={`text_${index}`}
                     className={`carousel-item ${
                       index === 0 ? "active" : ""
                     } content-center max-w-max`}
@@ -118,6 +116,7 @@ function App() {
                 {histExito.map((i, index) => {
                   return (
                     <button
+                      key={`image_${index}`}
                       type="button"
                       data-bs-target="#imageCarousel"
                       data-bs-slide-to={index.toString()}
@@ -125,8 +124,7 @@ function App() {
                       className={showItem === index ? "active" : ""}
                       aria-current={showItem === index ? "true" : "false"}
                       aria-label={`Slide ${index.toString() + 1}`}
-                      //onClick={() => changeText("none", index.toString())}
-                      onClick={() => changeText("none", i[5])}
+                      onClick={() => changeText("none", index)}
                     ></button>
                   );
                 })}

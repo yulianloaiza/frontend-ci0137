@@ -69,6 +69,7 @@ function Carousel({ images }) {
           {images.map((i, index) => {
             return (
               <div
+                key={`image_${index}`}
                 className={`carousel-item ${
                   index === 0 ? "active" : ""
                 } content-center max-w-max`}
@@ -90,6 +91,7 @@ function Carousel({ images }) {
               {images.map((i, index) => {
                 return (
                   <img
+                    key={`image_${index}`}
                     src={i}
                     className="max-h-20 rounded cursor-pointer"
                     alt="Visualización previa"
