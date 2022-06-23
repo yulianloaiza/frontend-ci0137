@@ -14,7 +14,11 @@ function ContentCard({
   //Se fuerza a que las imagenes sean de 800x800 pixeles
   return (
     <>
-      <div className="flex gap-4 content-start w-full max-w-3xl bg-idle-grey border rounded">
+      <div className="flex gap-4 bg-idle-grey border rounded
+      w-full max-w-sm
+      md:w-full md:max-w-xs 
+      lg:w-full lg:max-w-3xl 
+      content-start">
         <div>
           <div>
             <img

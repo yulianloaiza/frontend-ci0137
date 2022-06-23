@@ -27,7 +27,8 @@ function AnimalInfo() {
         <Header />
         <div
           className="px-4 md:px-8 lg:px-20 pb-4 mb-8
-            grid grid-cols-2 "
+          grid grid-cols-1  
+          md:grid md:grid-cols-2 "
         >
           {/*Columna izquierda*/}
           <div

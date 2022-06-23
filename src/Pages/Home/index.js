@@ -16,8 +16,8 @@ function App() {
   const [showItem, setShowItem] = useState(0);
   /*arreglo de historias exito solo para fines ilustrativos
             En realidad se debe agarrrar del backend
-            nombre, organizacion, descripcion, autora, imagen 
-            
+            nombre, organizacion, descripcion, autora, imagen
+
             CREO QUE LE HACE FALTA UN CAMPO, EL DEL ID DEL PERRITO*/
   const histExito = [
     [
@@ -80,7 +80,7 @@ function App() {
         {/*Columna derecha*/}
         <div
           className="bg-component-shadow rounded
-        px-4 md:px-8 lg:px-20 py-4 mb-8         
+        px-4 md:px-8 lg:px-20 py-4 mb-8
         max-w-3xl"
         >
           {/*Inicia Carrusel */}
@@ -188,8 +188,15 @@ function App() {
       <div className="flex space-x-2 content-center justify-center">
         <Button text={"Adoptar"} />
       </div>
+      {/*Div que contiene las 4 tarjetas POR EL MOMENTO, LUEGO DEBE SER TRAIDO DE LA BD 
+      place-items-center
+       md: place-items-start
+      */}
+      <div className="gap-8 justify-items-center py-4 mb-8 
+      grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-4
+       
 
-      <div className="grid grid-cols-4 gap-8 px-4 md:px-8 lg:px-20 py-4 mb-8">
+      px-4 md:px-8 lg:px-20">
         <ContentCard
           image="https://gray-kcbd-prod.cdn.arcpublishing.com/resizer/SQif8hGoA6PNTFUsqV5sEpUbUBU=/800x800/smart/filters:quality(70)/cloudfront-us-east-1.images.arcpublishing.com/gray/STCTNNN5SBCQ7L34YV7WD36APA.jpg"
           mainText="Diana"
