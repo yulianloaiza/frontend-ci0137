@@ -16,7 +16,9 @@ function App() {
   const [showItem, setShowItem] = useState(0);
   /*arreglo de historias exito solo para fines ilustrativos
             En realidad se debe agarrrar del backend
-            nombre, organizacion, descripcion, autora, imagen */
+            nombre, organizacion, descripcion, autora, imagen 
+            
+            CREO QUE LE HACE FALTA UN CAMPO, EL DEL ID DEL PERRITO*/
   const histExito = [
     [
       "1Teppanyaki",
