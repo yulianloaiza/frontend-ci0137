@@ -28,12 +28,15 @@ function AnimalInfo() {
         <div
           className="px-4 md:px-8 lg:px-20 pb-4 mb-8
           grid grid-cols-1  
-          md:grid md:grid-cols-2 "
+          lg:grid lg:grid-cols-2
+          md:justify-items-center lg:justify-items-stretch"
         >
-          {/*Columna izquierda*/}
+          {/*Columna izquierda
+          Preguntarle al profe, como hacer que en el div de arriba al colocar justify-items-center no se hace un stretch del 
+          borde para que igual se vea gris completo. Como arreglarlo?*/}
           <div
-            className="bg-component-shadow rounded
-        px-4 md:px-8 lg:px-20 py-4 mb-8         
+            className="bg-component-shadow rounded py-4 mb-8
+        px-4 md:px-8 lg:px-0 xl:px-20        
         max-w-3xl"
           >
             {/*arreglo de imagenes solo para fines ilustrativos
