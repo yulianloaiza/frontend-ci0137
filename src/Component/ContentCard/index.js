@@ -1,3 +1,5 @@
+
+import {useNavigate} from "react-router-dom";
 import { FaMapMarkerAlt } from "react-icons/fa";
 //Pendiente que al darle click redireccione a la pagina especifica del animal. O no se
 // si eso se hace desde el lugar donde se llama el componente
@@ -9,16 +11,18 @@ function ContentCard({
   subtitle,
   secondaryText,
   location,
-  onClick,
+  clickLink
 }) {
+  let navigate = useNavigate(); 
   //Se fuerza a que las imagenes sean de 800x800 pixeles
   return (
     <>
-      <div className="flex gap-4 bg-idle-grey border rounded
+      <div className="flex gap-4 bg-idle-grey border rounded cursor-pointer
       w-full max-w-sm
       md:w-full md:max-w-xs 
       lg:w-full lg:max-w-3xl 
-      content-start">
+      content-start"
+      onClick={()=> navigate(clickLink)}>
         <div>
           <div>
             <img

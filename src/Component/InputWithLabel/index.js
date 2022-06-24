@@ -6,8 +6,9 @@ function InputWithLabel({ subtitle, bigText }) {
     return (
       <>
         <div
-          className="flex-direction-column mx-auto content-center w-1/2 
-        p-4 py-4 text-left text-gray-700"
+          className="flex-direction-column mx-auto content-center  
+        p-4 py-4 text-left text-gray-700
+        w-11/12 md:w-9/12 xl:w-1/2"
         >
           <p className="pb-2">{subtitle}</p>
           <textarea
@@ -24,8 +25,9 @@ function InputWithLabel({ subtitle, bigText }) {
     return (
       <>
         <div
-          className="flex-direction-column mx-auto content-center w-1/2 
-        p-4 py-4 text-left text-gray-700"
+          className="flex-direction-column mx-auto content-center
+        p-4 py-4 text-left text-gray-700
+        w-11/12 md:w-9/12		xl:w-1/2 "
         >
           <p className="pb-2">{subtitle}</p>
           <input

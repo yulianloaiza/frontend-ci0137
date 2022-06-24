@@ -12,7 +12,7 @@ import Footer from "../../Component/Footer";
 /* <div className="w-full h-64 bg-red-800 top-0 left-0 absolute opacity-40
          mx-4 md:mx-8 lg:mx-20"></div> */
 
-function App() {
+function App() {  
   const [showItem, setShowItem] = useState(0);
   /*arreglo de historias exito solo para fines ilustrativos
             En realidad se debe agarrrar del backend
@@ -42,6 +42,35 @@ function App() {
       "https://petapixel.com/assets/uploads/2022/06/Breathtaking-Photos-of-Airborne-Dogs-Highlighted-by-Colorful-Holi-Paint07-800x800.jpg",
     ],
   ];
+  /*Acomodar el llamado con lo que sea necesario de la base de datos. Esto es un ejemplo.
+  Al momento esta como image, nombre, organizaion, localizacion
+  CREO QUE LE HACE FALTA UN CAMPO, EL DEL ID DEL PERRITO*/
+  const ejemploContentCards = [
+    [
+      "https://gray-kcbd-prod.cdn.arcpublishing.com/resizer/SQif8hGoA6PNTFUsqV5sEpUbUBU=/800x800/smart/filters:quality(70)/cloudfront-us-east-1.images.arcpublishing.com/gray/STCTNNN5SBCQ7L34YV7WD36APA.jpg",
+      "Diana",
+      "Centro Municipal de Educación para el Cuido Animal",
+      "Cartago",
+    ],
+    [
+      "https://d2zp5xs5cp8zlg.cloudfront.net/image-35477-800.jpg",
+      "Jessy",
+      "Animales de Asís",
+      "Cartago",
+    ],
+    [
+      "https://d2zp5xs5cp8zlg.cloudfront.net/image-32958-800.jpg",
+      "Maximiliano",
+      "El Refugio Hogar Animal Costa Ballena",
+      "Cartago",
+    ],
+    [
+      "https://www.dogstrust.org.uk/dogimages/1120385_ginger_20220427084245_ginger-summer-pic_800.jpg",
+      "Lupita",
+      "Centro Municipal de Educación para el Cuido Animal",
+      "Cartago",
+    ],
+  ];
 
   //Solo nos devolvemos cuando llegamos la ultima slide
   function changeText(direction, currentSlide = showItem) {
@@ -59,7 +88,9 @@ function App() {
       <Header />
       <div
         className="px-4 md:px-8 lg:px-20 pb-4 mb-8
-    grid grid-cols-2"
+        grid grid-cols-1  
+        lg:grid lg:grid-cols-2        
+        md:justify-items-center lg:justify-items-stretch"
       >
         {/*Columna izquierda */}
         <div
@@ -77,10 +108,12 @@ function App() {
             );
           })}
         </div>
-        {/*Columna derecha*/}
+        {/*Columna derecha
+        Preguntarle al profe, como hacer que en el div de arriba al colocar justify-items-center no se hace un stretch del 
+          borde para que igual se vea gris completo. Como arreglarlo?*/}
         <div
-          className="bg-component-shadow rounded
-        px-4 md:px-8 lg:px-20 py-4 mb-8
+          className="bg-component-shadow rounded py-4 mb-8
+        px-4 md:px-8 lg:px-0 xl:px-20
         max-w-3xl"
         >
           {/*Inicia Carrusel */}
@@ -165,7 +198,6 @@ function App() {
       </div>
 
       {/* Banner de bienvenida a la pagina*/}
-
       <div className="w-full relative px-4 md:px-8 lg:px-20 pb-4 mb-8">
         <div
           className="w-full h-full flex flex-col
@@ -192,54 +224,24 @@ function App() {
       place-items-center
        md: place-items-start
       */}
-      <div className="gap-8 justify-items-center py-4 mb-8 
+      <div
+        className="gap-8 justify-items-center py-4 mb-8 
       grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-4
-       
-
-      px-4 md:px-8 lg:px-20">
-        <ContentCard
-          image="https://gray-kcbd-prod.cdn.arcpublishing.com/resizer/SQif8hGoA6PNTFUsqV5sEpUbUBU=/800x800/smart/filters:quality(70)/cloudfront-us-east-1.images.arcpublishing.com/gray/STCTNNN5SBCQ7L34YV7WD36APA.jpg"
-          mainText="Diana"
-          subtitle="Organización"
-          secondaryText="Centro Municipal de Educación para el Cuido Animal"
-          location={"Cartago"}
-          onClick={() => {
-            window.location = "/Organizations";
-          }}
-        ></ContentCard>
-
-        <ContentCard
-          image="https://d2zp5xs5cp8zlg.cloudfront.net/image-35477-800.jpg"
-          mainText="Jessy"
-          subtitle="Organización"
-          secondaryText="Animales de Asís"
-          location={"Cartago"}
-          onClick={() => {
-            window.location = "/Organizations";
-          }}
-        ></ContentCard>
-
-        <ContentCard
-          image="https://d2zp5xs5cp8zlg.cloudfront.net/image-32958-800.jpg"
-          mainText="Maximiliano"
-          subtitle="Organización"
-          secondaryText="El Refugio Hogar Animal Costa Ballena"
-          location={"Cartago"}
-          onClick={() => {
-            window.location = "/Organizations";
-          }}
-        ></ContentCard>
-
-        <ContentCard
-          image="https://www.dogstrust.org.uk/dogimages/1120385_ginger_20220427084245_ginger-summer-pic_800.jpg"
-          mainText="Lupita"
-          subtitle="Organización"
-          secondaryText="Centro Municipal de Educación para el Cuido Animal"
-          location={"Cartago"}
-          onClick={() => {
-            window.location = "/Organizations";
-          }}
-        ></ContentCard>
+      px-4 md:px-8 lg:px-20"
+      >
+        {ejemploContentCards.map((i, index) => {
+          return (            
+              <ContentCard
+                key={`cc_${index}`}
+                image={i[0]}
+                mainText={i[1]}
+                subtitle="Organización"
+                secondaryText={i[2]}
+                location={i[3]}
+                clickLink='PONERELIDELPERRITO'
+              />            
+          );
+        })}        
       </div>
 
       <div>
