@@ -3,16 +3,13 @@ import "tw-elements";
 import Header from "../../Component/Header";
 import Button from "../../Component/Button";
 import ContentCard from "../../Component/ContentCard";
-import InputWithLabel from "../../Component/InputWithLabel";
 import Footer from "../../Component/Footer";
-
-//Del momento solo esta como relleno para ir probando componentes
 
 //Background color pending. No me funciona el margen derecho en banner
 /* <div className="w-full h-64 bg-red-800 top-0 left-0 absolute opacity-40
          mx-4 md:mx-8 lg:mx-20"></div> */
 
-function App() {  
+function App() {
   const [showItem, setShowItem] = useState(0);
   /*arreglo de historias exito solo para fines ilustrativos
             En realidad se debe agarrrar del backend
@@ -86,13 +83,58 @@ function App() {
   return (
     <div className="bg-light-gold">
       <Header />
+
+      {/* Banner de bienvenida a la pagina*/}
+      <div className="w-full relative px-4 md:px-8 lg:px-20 pb-4 mb-8">
+        <div
+          className="w-full h-full flex flex-col
+        absolute top-0 left-0 text-center justify-center items-center z-30
+        px-4 md:px-8 lg:px-20 pb-4 mb-8"
+        >
+          <p className="text-5xl font-bold">¡Bienvenido a Mambo Adopciones!</p>
+          <p className="text-xl">
+            Donde puedes encontrar animales en adopción en el territorio
+            costarricense
+          </p>
+        </div>
+        <img
+          src="https://wallpaperaccess.com/full/2170841.jpg"
+          alt="Imágen de bienvenida"
+          className="w-full h-64 object-cover rounded"
+        />
+      </div>
+
+      {/*Div que contiene las 4 tarjetas POR EL MOMENTO, LUEGO DEBE SER TRAIDO DE LA BD 
+      place-items-center
+       md: place-items-start
+      */}
+      <div
+        className="gap-8 justify-items-center py-4 mb-8 
+      grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-4
+      px-4 md:px-8 lg:px-20"
+      >
+        {ejemploContentCards.map((i, index) => {
+          return (
+            <ContentCard
+              key={`cc_${index}`}
+              image={i[0]}
+              mainText={i[1]}
+              subtitle="Organización"
+              secondaryText={i[2]}
+              location={i[3]}
+              clickLink="PONERELIDELPERRITO"
+            />
+          );
+        })}
+      </div>
+
       <div
         className="px-4 md:px-8 lg:px-20 pb-4 mb-8
         grid grid-cols-1  
         lg:grid lg:grid-cols-2        
         md:justify-items-center lg:justify-items-stretch"
       >
-        {/*Columna izquierda */}
+        {/*Historias éxito. Columna izquierda */}
         <div
           className="bg-idle-grey rounded
         px-4 md:px-8 lg:px-20 py-4 mb-8 flex items-center"
@@ -197,70 +239,13 @@ function App() {
         </div>
       </div>
 
-      {/* Banner de bienvenida a la pagina*/}
-      <div className="w-full relative px-4 md:px-8 lg:px-20 pb-4 mb-8">
-        <div
-          className="w-full h-full flex flex-col
-        absolute top-0 left-0 text-center justify-center items-center z-30
-        px-4 md:px-8 lg:px-20 pb-4 mb-8"
-        >
-          <p className="text-5xl font-bold">¡Bienvenido a Mambo Adopciones!</p>
-          <p className="text-xl">
-            Donde puedes encontrar animales en adopción en el territorio
-            costarricense
-          </p>
-        </div>
-        <img
-          src="https://wallpaperaccess.com/full/2170841.jpg"
-          alt="Imágen de bienvenida"
-          className="w-full h-64 object-cover rounded"
-        />
-      </div>
+      
 
       <div className="flex space-x-2 content-center justify-center">
         <Button text={"Adoptar"} />
       </div>
-      {/*Div que contiene las 4 tarjetas POR EL MOMENTO, LUEGO DEBE SER TRAIDO DE LA BD 
-      place-items-center
-       md: place-items-start
-      */}
-      <div
-        className="gap-8 justify-items-center py-4 mb-8 
-      grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-4
-      px-4 md:px-8 lg:px-20"
-      >
-        {ejemploContentCards.map((i, index) => {
-          return (            
-              <ContentCard
-                key={`cc_${index}`}
-                image={i[0]}
-                mainText={i[1]}
-                subtitle="Organización"
-                secondaryText={i[2]}
-                location={i[3]}
-                clickLink='PONERELIDELPERRITO'
-              />            
-          );
-        })}        
-      </div>
 
-      <div>
-        <InputWithLabel
-          subtitle={"Donde estará la mascota cuando usted no este en casa?"}
-          bigText="true"
-        />
-        <InputWithLabel
-          subtitle={
-            "Por favor digite la dirección completa de su hogar y cuantas personas viven en ella dia y noche"
-          }
-          bigText="true"
-        />
-        <InputWithLabel
-          subtitle={"por favor digite su nombre completo"}
-          bigText="false"
-        />
-        <InputWithLabel subtitle={"Su fam esta de acuerdo?"} bigText="false" />
-      </div>
+      
 
       <Footer />
     </div>

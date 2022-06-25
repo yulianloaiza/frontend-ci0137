@@ -5,11 +5,14 @@ import Organizations from "../Organizations";
 import About from "../About";
 import AnimalInfo from "../AnimalInfo";
 import OrganizationInfo from "../OrganizationInfo";
+import AdoptionForm from "../AdoptionForm";
 
-//Del momento solo esta como relleno para ir probando componentes
-//La ruta de animales en especificos se hace con un use params de react. 
-//Y luego se maneja dependiendo del id, cual animal se trar para desplegar info
-//algo como /AnimalInfo/:id
+/*Del momento solo esta como relleno para ir probando componentes
+La ruta de animales en especificos se hace con un use params de react. 
+Y luego se maneja dependiendo del id, cual animal se trar para desplegar info
+algo como /AnimalInfo/:id
+Lo mismo para org especifica y para formulario*/
+
 function App() {
   return (
     <BrowserRouter>
@@ -21,6 +24,7 @@ function App() {
         <Route path="/About" element={<About />} />
         <Route path="/AnimalInfo/" element={<AnimalInfo />} />
         <Route path="/OrganizationInfo" element={<OrganizationInfo />} />
+        <Route path="/AdoptionForm" element={<AdoptionForm />} />
       </Routes>
     </BrowserRouter>
   );
