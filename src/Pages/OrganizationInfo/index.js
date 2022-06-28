@@ -10,7 +10,7 @@ En realidad se debe agarrrar del backend.
 El texto tambien se deberia jalar del backend
           */
 
-function AnimalInfo() {
+function OrganizationInfo() {
   /*arreglo de imagenes solo para fines ilustrativos
             En realidad se debe agarrrar del backend*/
   const imgArray = [
@@ -90,4 +90,4 @@ function AnimalInfo() {
   );
 }
 
-export default AnimalInfo;
+export default OrganizationInfo;

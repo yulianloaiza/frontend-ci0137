@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "tw-elements";
 import Header from "../../Component/Header";
-import Button from "../../Component/Button";
 import ContentCard from "../../Component/ContentCard";
 import Footer from "../../Component/Footer";
 
@@ -78,7 +77,7 @@ function App() {
 
   return (
     <div className="bg-light-gold">
-      <Header />      
+      <Header />
       {/* Banner de bienvenida a la pagina*/}
       <div className="w-full relative px-4 md:px-8 lg:px-20 pb-4 mb-8">
         <div
@@ -86,7 +85,9 @@ function App() {
         absolute top-0 left-0 text-center justify-center items-center z-30
         px-4 md:px-8 lg:px-20 pb-4 mb-8"
         >
-          <p className="text-6xl font-bold text-white xl:border-8 xl:border-brown-gold">¡Bienvenido a Mambo Adopciones!</p>
+          <p className="text-6xl font-bold text-white xl:border-8 xl:border-brown-gold">
+            ¡Bienvenido a Mambo Adopciones!
+          </p>
           <p className="text-2xl text-white">
             Donde puedes encontrar animales en adopción en el territorio
             costarricense
