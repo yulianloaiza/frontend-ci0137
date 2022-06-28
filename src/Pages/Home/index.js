@@ -5,10 +5,6 @@ import Button from "../../Component/Button";
 import ContentCard from "../../Component/ContentCard";
 import Footer from "../../Component/Footer";
 
-//Background color pending. No me funciona el margen derecho en banner
-/* <div className="w-full h-64 bg-red-800 top-0 left-0 absolute opacity-40
-         mx-4 md:mx-8 lg:mx-20"></div> */
-
 function App() {
   const [showItem, setShowItem] = useState(0);
   /*arreglo de historias exito solo para fines ilustrativos
@@ -82,8 +78,7 @@ function App() {
 
   return (
     <div className="bg-light-gold">
-      <Header />
-
+      <Header />      
       {/* Banner de bienvenida a la pagina*/}
       <div className="w-full relative px-4 md:px-8 lg:px-20 pb-4 mb-8">
         <div
@@ -91,16 +86,20 @@ function App() {
         absolute top-0 left-0 text-center justify-center items-center z-30
         px-4 md:px-8 lg:px-20 pb-4 mb-8"
         >
-          <p className="text-5xl font-bold">¡Bienvenido a Mambo Adopciones!</p>
-          <p className="text-xl">
+          <p className="text-6xl font-bold text-white xl:border-8 xl:border-brown-gold">¡Bienvenido a Mambo Adopciones!</p>
+          <p className="text-2xl text-white">
             Donde puedes encontrar animales en adopción en el territorio
             costarricense
           </p>
         </div>
+        <div
+          className="absolute top-0 bottom-4 bg-gray-700 bg-opacity-30
+          left-4 right-4 md:left-8 md:right-8 lg:left-20 lg:right-20"
+        ></div>
         <img
-          src="https://wallpaperaccess.com/full/2170841.jpg"
+          src="https://img.freepik.com/foto-gratis/retrato-grupo-adorables-cachorros_53876-64796.jpg?t=st=1656434026~exp=1656434626~hmac=afd4b9dd00945edbebad35120d5f8ffee34730b435f27b1f7c043b780c5cc3d3&w=2000"
           alt="Imágen de bienvenida"
-          className="w-full h-64 object-cover rounded"
+          className="w-full h-96 object-cover rounded"
         />
       </div>
 
@@ -233,7 +232,7 @@ function App() {
           </div>
           {/*Termina Carrusel */}
         </div>
-      </div>      
+      </div>
       <Footer />
     </div>
   );
