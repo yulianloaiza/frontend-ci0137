@@ -131,13 +131,12 @@ function App() {
       <div
         className="px-4 md:px-8 lg:px-20 pb-4 mb-8
         grid grid-cols-1  
-        lg:grid lg:grid-cols-2        
-        md:justify-items-center lg:justify-items-stretch"
+        lg:grid lg:grid-cols-2"
       >
         {/*Historias éxito. Columna izquierda */}
         <div
           className="bg-idle-grey rounded
-        px-4 md:px-8 lg:px-20 py-4 mb-8 flex items-center"
+        px-4 md:px-8 lg:px-20 py-4 mb-3 lg:mb-8 flex items-center"
         >
           {histExito.map((i, index) => {
             return (
@@ -150,13 +149,10 @@ function App() {
             );
           })}
         </div>
-        {/*Columna derecha
-        Preguntarle al profe, como hacer que en el div de arriba al colocar justify-items-center no se hace un stretch del 
-          borde para que igual se vea gris completo. Como arreglarlo?*/}
+        {/*Columna derecha*/}
         <div
           className="bg-component-shadow rounded py-4 mb-8
-        px-4 md:px-8 lg:px-0 xl:px-20
-        max-w-3xl"
+        px-4 md:px-8 lg:px-0 xl:px-20"
         >
           {/*Inicia Carrusel */}
           <div
@@ -237,16 +233,7 @@ function App() {
           </div>
           {/*Termina Carrusel */}
         </div>
-      </div>
-
-      
-
-      <div className="flex space-x-2 content-center justify-center">
-        <Button text={"Adoptar"} />
-      </div>
-
-      
-
+      </div>      
       <Footer />
     </div>
   );

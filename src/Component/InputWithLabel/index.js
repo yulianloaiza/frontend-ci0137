@@ -1,7 +1,22 @@
-//Pendiente ver si es necesario que se haga un resize automatico sin tener que
-//tocar le barrita. asi se quitaria el scroll tambien
+import get from "lodash";
+import { ErrorMessage } from "@hookform/error-message";
+import FormErrorMessage from "../formErrorMessage";
+/*Se le pasan los errores para poder ser renderizados dependiendo del arreglo de errores.
+Si hay más de un error, solo muestra uno a la vez*/
+function InputWithLabel({
+  id,
+  label,
+  inputName,
+  subtitle,
+  bigText,
+  register,
+  rules,
+  errors,
+  inputType = "text",
+  ...props
+}) {
+  const errorMessages = get(errors, inputName);
 
-function InputWithLabel({ subtitle, bigText, inputName }) {
   return (
     <>
       <div
@@ -10,22 +25,52 @@ function InputWithLabel({ subtitle, bigText, inputName }) {
         w-11/12 md:w-9/12 xl:w-1/2"
       >
         <p className="pb-2">{subtitle}</p>
+
         {bigText === "true" ? (
-          <textarea
-            class="shadow form-control block w-full px-3 py-1.5 text-base font-normal
+          <>
+            <textarea
+              className={`shadow form-control block w-full px-3 py-1.5 text-base font-normal
             leading-tight bg-clip-padding
             border border-solid border-gray-300 rounded transition ease-in-out
-            m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-            rows="3"
-            name={inputName}
-          />
+            m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none`}
+              rows="3"
+              name={inputName}
+              id={id}
+              aria-label={label}
+              aria-invalid={!!(errors && errorMessages)}
+              {...props}
+              {...(register && register(inputName, rules))}
+            />
+            <ErrorMessage
+              errors={errors}
+              name={inputName}
+              render={({ message }) => (
+                <FormErrorMessage>{message}</FormErrorMessage>
+              )}
+            />
+          </>
         ) : (
-          <input
-            class="shadow border border-solid border-gray-300 rounded w-full py-2 px-3 
+          <>
+            <input
+              className={`shadow border border-solid border-gray-300 rounded w-full py-2 px-3 
             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
-            leading-tight transition ease-in-out m-0"
-            name={inputName}
-          />
+            leading-tight transition ease-in-out m-0`}
+              name={inputName}
+              id={id}
+              type={inputType}
+              aria-label={label}
+              aria-invalid={!!(errors && errorMessages)}
+              {...props}
+              {...(register && register(inputName, rules))}
+            />
+            <ErrorMessage
+              errors={errors}
+              name={inputName}
+              render={({ message }) => (
+                <FormErrorMessage>{message}</FormErrorMessage>
+              )}
+            />
+          </>
         )}
       </div>
     </>
