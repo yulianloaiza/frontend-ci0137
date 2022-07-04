@@ -85,37 +85,33 @@ function Carousel({ images }) {
             );
           })}
           {/*Control atras y siguiente*/}
-        <button
-          className="carousel-control-prev carousel-dark absolute
-          top-0 bottom-24 left-0          
-          sm:hover:bg-blue-700
-          md:hover:bg-yellow-400
-          lg:hover:bg-red-600
+          <button
+            className="carousel-control-prev carousel-dark absolute top-0 bottom-24 left-0 
           flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline"
-          type="button"
-          data-bs-target="#imageCarousel"
-          data-bs-slide="prev"
-          onClick={() => changeImage("back")}
-        >
-          <span
-            className="carousel-control-prev-icon inline-block bg-no-repeat bg-red-700 rounded-full opacity-80"
-            aria-hidden="true"
-          ></span>
-        </button>
-        <button
-          className="carousel-control-next carousel-dark absolute 
+            type="button"
+            data-bs-target="#imageCarousel"
+            data-bs-slide="prev"
+            onClick={() => changeImage("back")}
+          >
+            <span
+              className="carousel-control-prev-icon inline-block bg-no-repeat bg-red-700 rounded-full opacity-80"
+              aria-hidden="true"
+            ></span>
+          </button>
+          <button
+            className="carousel-control-next carousel-dark absolute 
           top-0 bottom-24 right-0
           flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline"
-          type="button"
-          data-bs-target="#imageCarousel"
-          data-bs-slide="next"
-          onClick={() => changeImage("forward")}
-        >
-          <span
-            className="carousel-control-next-icon inline-block bg-no-repeat bg-red-700 rounded-full opacity-80"
-            aria-hidden="true"
-          ></span>
-        </button>
+            type="button"
+            data-bs-target="#imageCarousel"
+            data-bs-slide="next"
+            onClick={() => changeImage("forward")}
+          >
+            <span
+              className="carousel-control-next-icon inline-block bg-no-repeat bg-red-700 rounded-full opacity-80"
+              aria-hidden="true"
+            ></span>
+          </button>
           {/*Thumbnail slider */}
           <div className="relative w-full bg-gray-400 max-w-fit rounded-b">
             <div
@@ -157,7 +153,6 @@ function Carousel({ images }) {
             </div>
           </div>
         </div>
-        
       </div>
     </>
   );

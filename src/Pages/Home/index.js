@@ -85,16 +85,16 @@ function App() {
         absolute top-0 left-0 text-center justify-center items-center z-30
         px-4 md:px-8 lg:px-20 pb-4 mb-8"
         >
-          <p className="text-6xl font-bold text-white xl:border-8 xl:border-brown-gold">
+          <p className="text-5xl md:text-6xl font-bold text-white xl:border-8 xl:border-brown-gold xl:p-2 m-2 xl:mx-0">
             ¡Bienvenido a Mambo Adopciones!
           </p>
-          <p className="text-2xl text-white">
+          <p className="text-2xl text-white m-2">
             Donde puedes encontrar animales en adopción en el territorio
             costarricense
           </p>
         </div>
         <div
-          className="absolute top-0 bottom-4 bg-gray-700 bg-opacity-30
+          className="absolute top-0 bottom-4 bg-gray-700 bg-opacity-40 md:bg-opacity-30 
           left-4 right-4 md:left-8 md:right-8 lg:left-20 lg:right-20"
         ></div>
         <img
@@ -110,7 +110,7 @@ function App() {
       */}
       <div
         className="gap-8 justify-items-center py-4 mb-8 
-      grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-4
+      grid grid-cols-1 sm:grid-cols-2  md:grid-cols-4
       px-4 md:px-8 lg:px-20"
       >
         {ejemploContentCards.map((i, index) => {
@@ -212,7 +212,7 @@ function App() {
               onClick={() => changeText("prev")}
             >
               <span
-                className="carousel-control-prev-icon inline-block bg-no-repeat"
+                className="carousel-control-prev-icon inline-block bg-no-repeat bg-red-700 rounded-full opacity-80"
                 aria-hidden="true"
               ></span>
               <span className="visually-hidden">Previous</span>
@@ -225,7 +225,7 @@ function App() {
               onClick={() => changeText("next")}
             >
               <span
-                className="carousel-control-next-icon inline-block bg-no-repeat"
+                className="carousel-control-next-icon inline-block bg-no-repeat bg-red-700 rounded-full opacity-80"
                 aria-hidden="true"
               ></span>
               <span className="visually-hidden">Next</span>
