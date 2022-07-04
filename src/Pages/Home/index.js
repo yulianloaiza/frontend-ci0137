@@ -1,23 +1,15 @@
 import { useState } from "react";
 import "tw-elements";
 import Header from "../../Component/Header";
-import Button from "../../Component/Button";
 import ContentCard from "../../Component/ContentCard";
-import InputWithLabel from "../../Component/InputWithLabel";
 import Footer from "../../Component/Footer";
-
-//Del momento solo esta como relleno para ir probando componentes
-
-//Background color pending. No me funciona el margen derecho en banner
-/* <div className="w-full h-64 bg-red-800 top-0 left-0 absolute opacity-40
-         mx-4 md:mx-8 lg:mx-20"></div> */
 
 function App() {
   const [showItem, setShowItem] = useState(0);
   /*arreglo de historias exito solo para fines ilustrativos
             En realidad se debe agarrrar del backend
-            nombre, organizacion, descripcion, autora, imagen 
-            
+            nombre, organizacion, descripcion, autora, imagen
+
             CREO QUE LE HACE FALTA UN CAMPO, EL DEL ID DEL PERRITO*/
   const histExito = [
     [
@@ -42,6 +34,35 @@ function App() {
       "https://petapixel.com/assets/uploads/2022/06/Breathtaking-Photos-of-Airborne-Dogs-Highlighted-by-Colorful-Holi-Paint07-800x800.jpg",
     ],
   ];
+  /*Acomodar el llamado con lo que sea necesario de la base de datos. Esto es un ejemplo.
+  Al momento esta como image, nombre, organizaion, localizacion
+  CREO QUE LE HACE FALTA UN CAMPO, EL DEL ID DEL PERRITO*/
+  const ejemploContentCards = [
+    [
+      "https://gray-kcbd-prod.cdn.arcpublishing.com/resizer/SQif8hGoA6PNTFUsqV5sEpUbUBU=/800x800/smart/filters:quality(70)/cloudfront-us-east-1.images.arcpublishing.com/gray/STCTNNN5SBCQ7L34YV7WD36APA.jpg",
+      "Diana",
+      "Centro Municipal de Educación para el Cuido Animal",
+      "Cartago",
+    ],
+    [
+      "https://d2zp5xs5cp8zlg.cloudfront.net/image-35477-800.jpg",
+      "Jessy",
+      "Animales de Asís",
+      "Cartago",
+    ],
+    [
+      "https://d2zp5xs5cp8zlg.cloudfront.net/image-32958-800.jpg",
+      "Maximiliano",
+      "El Refugio Hogar Animal Costa Ballena",
+      "Cartago",
+    ],
+    [
+      "https://www.dogstrust.org.uk/dogimages/1120385_ginger_20220427084245_ginger-summer-pic_800.jpg",
+      "Lupita",
+      "Centro Municipal de Educación para el Cuido Animal",
+      "Cartago",
+    ],
+  ];
 
   //Solo nos devolvemos cuando llegamos la ultima slide
   function changeText(direction, currentSlide = showItem) {
@@ -57,14 +78,65 @@ function App() {
   return (
     <div className="bg-light-gold">
       <Header />
+      {/* Banner de bienvenida a la pagina*/}
+      <div className="w-full relative px-4 md:px-8 lg:px-20 pb-4 mb-8">
+        <div
+          className="w-full h-full flex flex-col
+        absolute top-0 left-0 text-center justify-center items-center z-30
+        px-4 md:px-8 lg:px-20 pb-4 mb-8"
+        >
+          <p className="text-5xl md:text-6xl font-bold text-white xl:border-8 xl:border-brown-gold xl:p-2 m-2 xl:mx-0">
+            ¡Bienvenido a Mambo Adopciones!
+          </p>
+          <p className="text-2xl text-white m-2">
+            Donde puedes encontrar animales en adopción en el territorio
+            costarricense
+          </p>
+        </div>
+        <div
+          className="absolute top-0 bottom-4 bg-gray-700 bg-opacity-40 md:bg-opacity-30 
+          left-4 right-4 md:left-8 md:right-8 lg:left-20 lg:right-20"
+        ></div>
+        <img
+          src="https://img.freepik.com/foto-gratis/retrato-grupo-adorables-cachorros_53876-64796.jpg?t=st=1656434026~exp=1656434626~hmac=afd4b9dd00945edbebad35120d5f8ffee34730b435f27b1f7c043b780c5cc3d3&w=2000"
+          alt="Imágen de bienvenida"
+          className="w-full h-96 object-cover rounded"
+        />
+      </div>
+
+      {/*Div que contiene las 4 tarjetas POR EL MOMENTO, LUEGO DEBE SER TRAIDO DE LA BD 
+      place-items-center
+       md: place-items-start
+      */}
+      <div
+        className="gap-8 justify-items-center py-4 mb-8 
+      grid grid-cols-1 sm:grid-cols-2  md:grid-cols-4
+      px-4 md:px-8 lg:px-20"
+      >
+        {ejemploContentCards.map((i, index) => {
+          return (
+            <ContentCard
+              key={`cc_${index}`}
+              image={i[0]}
+              mainText={i[1]}
+              subtitle="Organización"
+              secondaryText={i[2]}
+              location={i[3]}
+              clickLink="PONERELIDELPERRITO"
+            />
+          );
+        })}
+      </div>
+
       <div
         className="px-4 md:px-8 lg:px-20 pb-4 mb-8
-    grid grid-cols-2"
+        grid grid-cols-1  
+        lg:grid lg:grid-cols-2"
       >
-        {/*Columna izquierda */}
+        {/*Historias éxito. Columna izquierda */}
         <div
           className="bg-idle-grey rounded
-        px-4 md:px-8 lg:px-20 py-4 mb-8 flex items-center"
+        px-4 md:px-8 lg:px-20 py-4 mb-3 lg:mb-8 flex items-center"
         >
           {histExito.map((i, index) => {
             return (
@@ -79,9 +151,8 @@ function App() {
         </div>
         {/*Columna derecha*/}
         <div
-          className="bg-component-shadow rounded
-        px-4 md:px-8 lg:px-20 py-4 mb-8         
-        max-w-3xl"
+          className="bg-component-shadow rounded py-4 mb-8
+        px-4 md:px-8 lg:px-0 xl:px-20"
         >
           {/*Inicia Carrusel */}
           <div
@@ -141,7 +212,7 @@ function App() {
               onClick={() => changeText("prev")}
             >
               <span
-                className="carousel-control-prev-icon inline-block bg-no-repeat"
+                className="carousel-control-prev-icon inline-block bg-no-repeat bg-red-700 rounded-full opacity-80"
                 aria-hidden="true"
               ></span>
               <span className="visually-hidden">Previous</span>
@@ -154,7 +225,7 @@ function App() {
               onClick={() => changeText("next")}
             >
               <span
-                className="carousel-control-next-icon inline-block bg-no-repeat"
+                className="carousel-control-next-icon inline-block bg-no-repeat bg-red-700 rounded-full opacity-80"
                 aria-hidden="true"
               ></span>
               <span className="visually-hidden">Next</span>
@@ -163,96 +234,6 @@ function App() {
           {/*Termina Carrusel */}
         </div>
       </div>
-
-      {/* Banner de bienvenida a la pagina*/}
-
-      <div className="w-full relative px-4 md:px-8 lg:px-20 pb-4 mb-8">
-        <div
-          className="w-full h-full flex flex-col
-        absolute top-0 left-0 text-center justify-center items-center z-30
-        px-4 md:px-8 lg:px-20 pb-4 mb-8"
-        >
-          <p className="text-5xl font-bold">¡Bienvenido a Mambo Adopciones!</p>
-          <p className="text-xl">
-            Donde puedes encontrar animales en adopción en el territorio
-            costarricense
-          </p>
-        </div>
-        <img
-          src="https://wallpaperaccess.com/full/2170841.jpg"
-          alt="Imágen de bienvenida"
-          className="w-full h-64 object-cover rounded"
-        />
-      </div>
-
-      <div className="flex space-x-2 content-center justify-center">
-        <Button text={"Adoptar"} />
-      </div>
-
-      <div className="grid grid-cols-4 gap-8 px-4 md:px-8 lg:px-20 py-4 mb-8">
-        <ContentCard
-          image="https://gray-kcbd-prod.cdn.arcpublishing.com/resizer/SQif8hGoA6PNTFUsqV5sEpUbUBU=/800x800/smart/filters:quality(70)/cloudfront-us-east-1.images.arcpublishing.com/gray/STCTNNN5SBCQ7L34YV7WD36APA.jpg"
-          mainText="Diana"
-          subtitle="Organización"
-          secondaryText="Centro Municipal de Educación para el Cuido Animal"
-          location={"Cartago"}
-          onClick={() => {
-            window.location = "/Organizations";
-          }}
-        ></ContentCard>
-
-        <ContentCard
-          image="https://d2zp5xs5cp8zlg.cloudfront.net/image-35477-800.jpg"
-          mainText="Jessy"
-          subtitle="Organización"
-          secondaryText="Animales de Asís"
-          location={"Cartago"}
-          onClick={() => {
-            window.location = "/Organizations";
-          }}
-        ></ContentCard>
-
-        <ContentCard
-          image="https://d2zp5xs5cp8zlg.cloudfront.net/image-32958-800.jpg"
-          mainText="Maximiliano"
-          subtitle="Organización"
-          secondaryText="El Refugio Hogar Animal Costa Ballena"
-          location={"Cartago"}
-          onClick={() => {
-            window.location = "/Organizations";
-          }}
-        ></ContentCard>
-
-        <ContentCard
-          image="https://www.dogstrust.org.uk/dogimages/1120385_ginger_20220427084245_ginger-summer-pic_800.jpg"
-          mainText="Lupita"
-          subtitle="Organización"
-          secondaryText="Centro Municipal de Educación para el Cuido Animal"
-          location={"Cartago"}
-          onClick={() => {
-            window.location = "/Organizations";
-          }}
-        ></ContentCard>
-      </div>
-
-      <div>
-        <InputWithLabel
-          subtitle={"Donde estará la mascota cuando usted no este en casa?"}
-          bigText="true"
-        />
-        <InputWithLabel
-          subtitle={
-            "Por favor digite la dirección completa de su hogar y cuantas personas viven en ella dia y noche"
-          }
-          bigText="true"
-        />
-        <InputWithLabel
-          subtitle={"por favor digite su nombre completo"}
-          bigText="false"
-        />
-        <InputWithLabel subtitle={"Su fam esta de acuerdo?"} bigText="false" />
-      </div>
-
       <Footer />
     </div>
   );

@@ -27,13 +27,13 @@ function AnimalInfo() {
         <Header />
         <div
           className="px-4 md:px-8 lg:px-20 pb-4 mb-8
-            grid grid-cols-2 "
+          grid grid-cols-1  
+          lg:grid lg:grid-cols-2"
         >
           {/*Columna izquierda*/}
           <div
-            className="bg-component-shadow rounded
-        px-4 md:px-8 lg:px-20 py-4 mb-8         
-        max-w-3xl"
+            className="bg-component-shadow rounded py-4 mb-3 lg:mb-8
+            px-4 md:px-8 lg:px-0 xl:px-20"
           >
             {/*arreglo de imagenes solo para fines ilustrativos
             En realidad se debe agarrrar del backend*/}
