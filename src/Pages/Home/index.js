@@ -4,7 +4,7 @@ import Header from "../../Component/Header";
 import ContentCard from "../../Component/ContentCard";
 import Footer from "../../Component/Footer";
 
-function App() {
+function Home() {
   const [showItem, setShowItem] = useState(0);
   /*arreglo de historias exito solo para fines ilustrativos
             En realidad se debe agarrrar del backend
@@ -238,4 +238,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;

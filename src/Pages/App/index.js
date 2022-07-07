@@ -18,13 +18,13 @@ function App() {
     <BrowserRouter>
       <Routes>
       <Route path="/" element={<Home />} />
-        <Route path="/Home" element={<Home />} />
-        <Route path="/Animals" element={<Animals />} />
-        <Route path="/Organizations" element={<Organizations />} />
-        <Route path="/About" element={<About />} />
-        <Route path="/AnimalInfo/" element={<AnimalInfo />} />
-        <Route path="/OrganizationInfo" element={<OrganizationInfo />} />
-        <Route path="/AdoptionForm" element={<AdoptionForm />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/animals" element={<Animals />} />
+        <Route path="/organizations" element={<Organizations />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/animal_info/" element={<AnimalInfo />} />
+        <Route path="/organization_info" element={<OrganizationInfo />} />
+        <Route path="/adoption_form" element={<AdoptionForm />} />
       </Routes>
     </BrowserRouter>
   );

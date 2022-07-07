@@ -25,22 +25,22 @@ function Navbar() {
           >
             <ul className="flex flex-col gap-3 md:gap-16 md:flex-row list-none md:ml-auto text-brown-gold font-semibold text-right">
               <li className="nav-item">
-                <Link to="/Home">
+                <Link to="/home">
                   <p className="hover:underline">Inicio</p>
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/Animals">
+                <Link to="/animals">
                   <p className="hover:underline">Animales</p>
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/Organizations">
+                <Link to="/organizations">
                   <p className="hover:underline">Organizaciones</p>
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/About">
+                <Link to="/about">
                   <p className="hover:underline">Sobre Nosotros</p>
                 </Link>
               </li>
