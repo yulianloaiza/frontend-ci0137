@@ -71,7 +71,7 @@ function AnimalInfo() {
               secondaryText={exampleAnimal[2]}
               location={exampleAnimal[3]}
               clickLink="PONERELIDELPERRITO"
-              forceSmallComponent="true"
+              single
             />
           </div>
           {/*Segunda fila*/}
