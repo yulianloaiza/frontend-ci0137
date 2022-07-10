@@ -3,6 +3,7 @@
 import Header from "../../Component/Header";
 import ContentCard from "../../Component/ContentCard";
 import Footer from "../../Component/Footer";
+import Title from "../../Component/Title";
 //import Header from "../../Component/Header";
 //Del momento solo esta como relleno para ir probando componentes
 function Organizations() {
@@ -29,13 +30,7 @@ function Organizations() {
   return (
     <div className="bg-light-gold">
       <Header />
-      <div
-        className="titles gap-8 justify-items-left py-4 mb-8 
-        grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3
-        px-4 md:px-8 lg:px-20"
-      >
-        <p> <strong>Organizaciones</strong></p>
-      </div>
+      <Title titleText="Organizaciones"/>
       {/*Div que contiene las 3 tarjetas POR EL MOMENTO, LUEGO DEBE SER TRAIDO DE LA BD*/}
       <div
         className="gap-8 justify-items-center py-4 mb-8 

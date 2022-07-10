@@ -4,6 +4,7 @@ import Header from "../../Component/Header";
 import ContentCard from "../../Component/ContentCard";
 import Footer from "../../Component/Footer";
 import Filter from "../../Component/Filter";
+import Title from "../../Component/Title";
 
 //TODO QUE SEA RESPONSIVE
 
@@ -38,17 +39,7 @@ function Animals() {
   return (
     <div className="bg-light-gold">
       <Header />
-      <div
-        className="titles gap-8 justify-items-left py-4 mb-8 
-        grid grid-cols-1 sm:grid-cols-2  md:grid-cols-4
-        px-4 md:px-8 lg:px-20"
-      >
-        <p>
-          {" "}
-          <strong>Animales</strong>
-        </p>
-      </div>
-
+      <Title titleText="Animales"/>
       {/*Establece el tamaño de las 2 columnas. Una en 1-4 y la otra en el resto*/}
       <div
         className="px-4 md:px-8 lg:px-20 pb-4 mb-8

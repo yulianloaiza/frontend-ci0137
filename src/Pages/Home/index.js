@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "tw-elements";
 import Header from "../../Component/Header";
+import Title from "../../Component/Title";
 import ContentCard from "../../Component/ContentCard";
 import Footer from "../../Component/Footer";
 
@@ -104,6 +105,7 @@ function Home() {
         />
       </div>
 
+      <Title titleText="TRENDINGGGG"/>
       {/*Div que contiene las 4 tarjetas POR EL MOMENTO, LUEGO DEBE SER TRAIDO DE LA BD 
       place-items-center
        md: place-items-start
@@ -128,6 +130,7 @@ function Home() {
         })}
       </div>
 
+      <Title titleText="Historias de éxito"/>
       <div
         className="px-4 md:px-8 lg:px-20 pb-4 mb-8
         grid grid-cols-1  

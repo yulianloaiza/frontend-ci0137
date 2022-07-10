@@ -1,5 +1,6 @@
 import Header from "../../Component/Header";
 import Footer from "../../Component/Footer";
+import Title from "../../Component/Title";
 import Carousel from "../../Component/Carousel";
 import Button from "../../Component/Button";
 //Cambiar el nombre cuando se resuelva la duda con el profe del nombre de la ruta.
@@ -25,6 +26,19 @@ function OrganizationInfo() {
     <>
       <div className="bg-light-gold">
         <Header />
+        <div className="grid grid-cols-1 md:grid-cols-2">
+        <div className="md:text-right ">
+          <Title titleText={"NOMBREPERRO"}/>
+        </div>
+
+          <div className="px-4 md:pr-8 lg:pr-20 pb-4 mb-3 self-center md:text-right md:hover:bg-green-800">
+            <Button text="Regresar" width={"1/2 md:w-3/4 xl:w-1/4 "} 
+            className= "px-4 md:px-8 lg:px-20"
+            />
+          </div>
+          
+        </div>
+
         <div
           className="px-4 md:px-8 lg:px-20 pb-4 mb-8
           grid grid-cols-1  
