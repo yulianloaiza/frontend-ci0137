@@ -1,272 +1,123 @@
-import { Fragment } from "react";
-import { Menu, Transition } from "@headlessui/react";
-import { ChevronDownIcon } from "@heroicons/react/solid";
+import { useForm, Controller } from "react-hook-form";
+import ReactSelect from "react-select";
+import Button from "../../Component/Button";
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
+//TODO FALTA lo de EDAD
 
 export default function Filter() {
+  //Valores por defecto de los dropdowns del filtro.
+  const defaultValues = {
+    tamano: { value: "Todos", label: "Todos" },
+    genero: { value: "Todos", label: "Todos" },
+    ubicacion: { value: "Todas", label: "Todos" },
+    /*Pendiente como implementar EDAD*/
+  };
+
+  const {
+    handleSubmit,
+    formState: { errors },
+    control,
+  } = useForm({
+    defaultValues,
+  });
+
+  //Para obtener la informacion del filtro
+  const onSubmit = (data) => {
+    console.log(data);
+    //Enviarlo al controlador de correos. Tambien recordarorganizationEmail
+  };
+
+
+  // bg-idle-grey
   return (
     <>
-      <div>
-        <div>
-          {/** Dropdown de Género **/}
-          <Menu as="div" className="relative inline-block text-left">
-            <div>
-              <Menu.Button className="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
-                Género
-                <ChevronDownIcon
-                  className="-mr-1 ml-2 h-5 w-5"
-                  aria-hidden="true"
+      {/* Contenedor de los filtros*/}            
+      <div
+        className={`w-full  bg-blue-800 sm:bg-white md:bg-red-800 lg:bg-green-800   border rounded content-start`}
+      >
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div
+            className="flex-direction-column mx-auto content-center  
+                  p-4 py-4 text-left text-gray-700
+                  w-3/4 md:w-full xl:w-3/4"
+          >
+            <p className="pb-2">Tamaño</p>
+            <Controller
+              name="tamano"
+              control={control}
+              render={({ field }) => (
+                <ReactSelect
+                  {...field}
+                  options={[
+                    { value: "Todos", label: "Todos" },
+                    { value: "Pequeño", label: "Pequeño" },
+                    { value: "Mediano", label: "Mediano" },
+                    { value: "Grande", label: "Grande" },
+                  ]}
                 />
-              </Menu.Button>
-            </div>
-            <Transition
-              as={Fragment}
-              enter="transition ease-out duration-100"
-              enterFrom="transform opacity-0 scale-95"
-              enterTo="transform opacity-100 scale-100"
-              leave="transition ease-in duration-75"
-              leaveFrom="transform opacity-100 scale-100"
-              leaveTo="transform opacity-0 scale-95"
-            >
-              <Menu.Items className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-                <div className="py-1">
-                  <Menu.Item>
-                    {({ active }) => (
-                      <a
-                        className={classNames(
-                          active
-                            ? "bg-gray-100 text-gray-900"
-                            : "text-gray-700",
-                          "block px-4 py-2 text-sm"
-                        )}
-                      >
-                        Macho
-                      </a>
-                    )}
-                  </Menu.Item>
-                  <Menu.Item>
-                    {({ active }) => (
-                      <a
-                        className={classNames(
-                          active
-                            ? "bg-gray-100 text-gray-900"
-                            : "text-gray-700",
-                          "block px-4 py-2 text-sm"
-                        )}
-                      >
-                        Hembra
-                      </a>
-                    )}
-                  </Menu.Item>
-                </div>
-              </Menu.Items>
-            </Transition>
-          </Menu>
-        </div>
+              )}
+            />
+          </div>
 
-        <div>
-          {/** Dropdown de Tamaño **/}
-          <Menu as="div" className="relative inline-block text-left">
-            <div>
-              <Menu.Button className="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
-                Tamaño
-                <ChevronDownIcon
-                  className="-mr-1 ml-2 h-5 w-5"
-                  aria-hidden="true"
+          <div
+            className="flex-direction-column mx-auto content-center  
+                  p-4 py-4 text-left text-gray-700
+                  w-3/4 md:w-full xl:w-3/4"
+          >
+            <p className="pb-2">Género</p>
+            <Controller
+              name="genero"
+              control={control}
+              render={({ field }) => (
+                <ReactSelect
+                  {...field}
+                  options={[
+                    { value: "Todos", label: "Todos" },
+                    { value: "Macho", label: "Macho" },
+                    { value: "Hembra", label: "Hembra" },
+                  ]}
                 />
-              </Menu.Button>
-            </div>
+              )}
+            />
+          </div>
 
-            <Transition
-              as={Fragment}
-              enter="transition ease-out duration-100"
-              enterFrom="transform opacity-0 scale-95"
-              enterTo="transform opacity-100 scale-100"
-              leave="transition ease-in duration-75"
-              leaveFrom="transform opacity-100 scale-100"
-              leaveTo="transform opacity-0 scale-95"
-            >
-              <Menu.Items className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-                <div className="py-1">
-                  <Menu.Item>
-                    {({ active }) => (
-                      <a
-                        className={classNames(
-                          active
-                            ? "bg-gray-100 text-gray-900"
-                            : "text-gray-700",
-                          "block px-4 py-2 text-sm"
-                        )}
-                      >
-                        Pequeño
-                      </a>
-                    )}
-                  </Menu.Item>
-                  <Menu.Item>
-                    {({ active }) => (
-                      <a
-                        className={classNames(
-                          active
-                            ? "bg-gray-100 text-gray-900"
-                            : "text-gray-700",
-                          "block px-4 py-2 text-sm"
-                        )}
-                      >
-                        Mediano
-                      </a>
-                    )}
-                  </Menu.Item>
-                  <Menu.Item>
-                    {({ active }) => (
-                      <a
-                        className={classNames(
-                          active
-                            ? "bg-gray-100 text-gray-900"
-                            : "text-gray-700",
-                          "block px-4 py-2 text-sm"
-                        )}
-                      >
-                        Grande
-                      </a>
-                    )}
-                  </Menu.Item>
-                </div>
-              </Menu.Items>
-            </Transition>
-          </Menu>
-        </div>
-
-        <div>
-          {/** Dropdown de Ubicación **/}
-          <Menu as="div" className="relative inline-block text-left">
-            <div>
-              <Menu.Button className="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
-                Ubicación
-                <ChevronDownIcon
-                  className="-mr-1 ml-2 h-5 w-5"
-                  aria-hidden="true"
+          <div
+            className="flex-direction-column mx-auto content-center  
+                  p-4 py-4 text-left text-gray-700
+                  w-3/4 md:w-full xl:w-3/4"
+          >
+            <p className="pb-2">Ubicación</p>
+            <Controller
+              name="ubicacion"
+              control={control}
+              render={({ field }) => (
+                <ReactSelect
+                  {...field}
+                  options={[
+                    { value: "Todas", label: "Todas" },
+                    { value: "San José", label: "San José" },
+                    { value: "Alajuela", label: "Alajuela" },
+                    { value: "Cartago", label: "Cartago" },
+                    { value: "Heredia", label: "Heredia" },
+                    { value: "Guanacaste", label: "Guanacaste" },
+                    { value: "Puntarenas", label: "Puntarenas" },
+                    { value: "Limón", label: "Limón" },
+                  ]}
                 />
-              </Menu.Button>
-            </div>
+              )}
+            />
+          </div>
 
-            <Transition
-              as={Fragment}
-              enter="transition ease-out duration-100"
-              enterFrom="transform opacity-0 scale-95"
-              enterTo="transform opacity-100 scale-100"
-              leave="transition ease-in duration-75"
-              leaveFrom="transform opacity-100 scale-100"
-              leaveTo="transform opacity-0 scale-95"
-            >
-              <Menu.Items className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-                <div className="py-1">
-                  <Menu.Item>
-                    {({ active }) => (
-                      <a
-                        className={classNames(
-                          active
-                            ? "bg-gray-100 text-gray-900"
-                            : "text-gray-700",
-                          "block px-4 py-2 text-sm"
-                        )}
-                      >
-                        San José
-                      </a>
-                    )}
-                  </Menu.Item>
-                  <Menu.Item>
-                    {({ active }) => (
-                      <a
-                        className={classNames(
-                          active
-                            ? "bg-gray-100 text-gray-900"
-                            : "text-gray-700",
-                          "block px-4 py-2 text-sm"
-                        )}
-                      >
-                        Alajuela
-                      </a>
-                    )}
-                  </Menu.Item>
-                  <Menu.Item>
-                    {({ active }) => (
-                      <a
-                        className={classNames(
-                          active
-                            ? "bg-gray-100 text-gray-900"
-                            : "text-gray-700",
-                          "block px-4 py-2 text-sm"
-                        )}
-                      >
-                        Cartago
-                      </a>
-                    )}
-                  </Menu.Item>
-                  <Menu.Item>
-                    {({ active }) => (
-                      <a
-                        className={classNames(
-                          active
-                            ? "bg-gray-100 text-gray-900"
-                            : "text-gray-700",
-                          "block px-4 py-2 text-sm"
-                        )}
-                      >
-                        Heredia
-                      </a>
-                    )}
-                  </Menu.Item>
-                  <Menu.Item>
-                    {({ active }) => (
-                      <a
-                        className={classNames(
-                          active
-                            ? "bg-gray-100 text-gray-900"
-                            : "text-gray-700",
-                          "block px-4 py-2 text-sm"
-                        )}
-                      >
-                        Guanacaste
-                      </a>
-                    )}
-                  </Menu.Item>
-                  <Menu.Item>
-                    {({ active }) => (
-                      <a
-                        className={classNames(
-                          active
-                            ? "bg-gray-100 text-gray-900"
-                            : "text-gray-700",
-                          "block px-4 py-2 text-sm"
-                        )}
-                      >
-                        Puntarenas
-                      </a>
-                    )}
-                  </Menu.Item>
-                  <Menu.Item>
-                    {({ active }) => (
-                      <a
-                        className={classNames(
-                          active
-                            ? "bg-gray-100 text-gray-900"
-                            : "text-gray-700",
-                          "block px-4 py-2 text-sm"
-                        )}
-                      >
-                        Limón
-                      </a>
-                    )}
-                  </Menu.Item>
-                </div>
-              </Menu.Items>
-            </Transition>
-          </Menu>
-        </div>
-      </div>
+          {/*Boton para aplicar cambios en el filtro */}
+          <div className="text-center px-5 py-5">
+            <Button
+              text="Enviar"
+              width={"w-3/4 md:w-full xl:w-3/4"}
+              buttonType="submit"
+            />
+          </div>
+        </form>
+      </div>      
     </>
   );
 }

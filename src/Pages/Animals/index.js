@@ -5,6 +5,8 @@ import ContentCard from "../../Component/ContentCard";
 import Footer from "../../Component/Footer";
 import Filter from "../../Component/Filter";
 
+//TODO QUE SEA RESPONSIVE
+
 function Animals() {
   const ejemploContentCards = [
     [
@@ -41,27 +43,44 @@ function Animals() {
         grid grid-cols-1 sm:grid-cols-2  md:grid-cols-4
         px-4 md:px-8 lg:px-20"
       >
-        <p> <strong>Animales</strong></p>
+        <p>
+          {" "}
+          <strong>Animales</strong>
+        </p>
       </div>
-      {/*Div que contiene las 3 tarjetas POR EL MOMENTO, LUEGO DEBE SER TRAIDO DE LA BD*/}
+
+      {/*Establece el tamaño de las 2 columnas. Una en 1-4 y la otra en el resto*/}
       <div
-        className="gap-8 justify-items-center py-4 mb-8 
-      grid grid-cols-1 sm:grid-cols-2  md:grid-cols-4
-      px-4 md:px-8 lg:px-20"
+        className="px-4 md:px-8 lg:px-20 pb-4 mb-8
+        grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4"
       >
-        <Filter />
-        {ejemploContentCards.map((i, index) => {
-          return (
-            <ContentCard
-              key={`cc_${index}`}
-              image={i[0]}
-              mainText={i[1]}
-              location={i[2]}
-              clickLink="PONERELIDELPERRITO"
-            />
-          );
-        })}
-      </div>
+        {/*Columna de filtro*/}
+        <div
+          className="justify-items-center py-4 mb-8 w-full
+          col-span-1 col-start-1 col-end-1"
+        >
+          <Filter />
+        </div>
+
+        {/*Div que contiene las 3 tarjetas POR EL MOMENTO, LUEGO DEBE SER TRAIDO DE LA BD*/}
+        <div
+          className="gap-8 justify-items-center py-4 mb-8 
+          grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3
+          px-4 md:px-8 lg:px-20 col-span-3"
+        >
+          {ejemploContentCards.map((i, index) => {
+            return (
+              <ContentCard
+                key={`cc_${index}`}
+                image={i[0]}
+                mainText={i[1]}
+                location={i[2]}
+                clickLink="PONERELIDELPERRITO"
+              />
+            );
+          })}
+        </div>
+      </div>      
       <Footer />
     </div>
   );
