@@ -2,6 +2,7 @@ import Header from "../../Component/Header";
 import Footer from "../../Component/Footer";
 import Carousel from "../../Component/Carousel";
 import Button from "../../Component/Button";
+import Mixpanel from "../../services/mixpanel";
 //Cambiar el nombre cuando se resuelva la duda con el profe del nombre de la ruta.
 
 /*
@@ -77,7 +78,7 @@ function AnimalInfo() {
               </p>
             </div>
             <div className="text-center mb-6 ">
-              <Button text="Adoptar" width={"full"} />
+              <Button onClick={() => {Mixpanel.track(Mixpanel.TYPES.GO_TO_ADOPTION_FORM); }} text="Adoptar" width={"full"} />
             </div>
           </div>
         </div>
