@@ -72,8 +72,8 @@ function Animals() {
         {/*Div que contiene las 3 tarjetas POR EL MOMENTO, LUEGO DEBE SER TRAIDO DE LA BD*/}
         <div
           className="gap-8 justify-items-center py-4 mb-8 
-          grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3
-          px-4 md:px-8 lg:px-20 col-span-3"
+          col-span-3 lg:pl-20 
+          grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3"
         >
           {animals.map((i, index) => {
             return (
