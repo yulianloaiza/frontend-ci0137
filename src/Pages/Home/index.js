@@ -4,7 +4,7 @@ import Header from "../../Component/Header";
 import ContentCard from "../../Component/ContentCard";
 import Footer from "../../Component/Footer";
 
-function App() {
+function Home() {
   const [showItem, setShowItem] = useState(0);
   /*arreglo de historias exito solo para fines ilustrativos
             En realidad se debe agarrrar del backend
@@ -94,7 +94,7 @@ function App() {
           </p>
         </div>
         <div
-          className="absolute top-0 bottom-4 bg-gray-700 bg-opacity-40 md:bg-opacity-30 
+          className="absolute top-0 bottom-4 bg-gray-700 bg-opacity-50 
           left-4 right-4 md:left-8 md:right-8 lg:left-20 lg:right-20"
         ></div>
         <img
@@ -109,7 +109,7 @@ function App() {
        md: place-items-start
       */}
       <div
-        className="gap-8 justify-items-center py-4 mb-8 
+        className="gap-8 justify-between py-4 mb-8 
       grid grid-cols-1 sm:grid-cols-2  md:grid-cols-4
       px-4 md:px-8 lg:px-20"
       >
@@ -166,9 +166,8 @@ function App() {
                 return (
                   <div
                     key={`text_${index}`}
-                    className={`carousel-item ${
-                      index === 0 ? "active" : ""
-                    } content-center max-w-max`}
+                    className={`carousel-item ${index === 0 ? "active" : ""
+                      } content-center max-w-max`}
                   >
                     <img
                       src={i[4]}
@@ -239,4 +238,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;

@@ -32,17 +32,17 @@ function Navbar() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link onClick={() => {Mixpanel.track(Mixpanel.TYPES.GO_TO_ANIMALS); }} to="/Animals">
+                <Link onClick={() => {Mixpanel.track(Mixpanel.TYPES.GO_TO_ANIMALS); }} to="/animals">
                   <p className="hover:underline">Animales</p>
                 </Link>
               </li>
               <li className="nav-item">
-                <Link onClick={() => {Mixpanel.track(Mixpanel.TYPES.GO_TO_ORGANIZATIONS); }} to="/Organizations">
+                <Link onClick={() => {Mixpanel.track(Mixpanel.TYPES.GO_TO_ORGANIZATIONS); }} to="/organizations">
                   <p className="hover:underline">Organizaciones</p>
                 </Link>
               </li>
               <li className="nav-item">
-                <Link onClick={() => {Mixpanel.track(Mixpanel.TYPES.GO_TO_ABOUT_US); }} to="/About">
+                <Link onClick={() => {Mixpanel.track(Mixpanel.TYPES.GO_TO_ABOUT_US); }} to="/about">
                   <p className="hover:underline">Sobre Nosotros</p>
                 </Link>
               </li>

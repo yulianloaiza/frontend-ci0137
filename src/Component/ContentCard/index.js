@@ -12,41 +12,19 @@ function ContentCard({
   secondaryText,
   location,
   clickLink,
-  forceSmallComponent = "false",
+  single = false,
 }) {
-  //Nos permite saber si es necesario renderizar de nuevo el componente para mostrarse mas pequeño si es una pantalla menor de 640 px
-  const [smallScreen, setsmallScreen] = useState(
-    window.innerWidth < 640 ? "true" : "false"
-  );
   let navigate = useNavigate();
-
-  //Envolvemos el listener en el useEffect para poder eliminarlo despues de renderizar y evitar fugas de memoria
-  useEffect(() => {
-    //Cada vez que se actualiza el largo de la pagina corremos esta funcion.
-    //Nos permite saber cuando tenemos que cambiar el tamaño de las content cards
-    function handleResize() {
-      forceSmallComponent === "true"
-        ? setsmallScreen("true")
-        : setsmallScreen(window.innerWidth < 640 ? "true" : "false");
-    }
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  });
 
   //Se fuerza a que las imagenes sean de 800x800 pixeles
   //Implementar esto con un useeffect que actualize,
   return (
     <>
       <div
-        className={`grid grid-cols-1 gap-4 bg-idle-grey border rounded cursor-pointer
-      content-start
-      ${
-        smallScreen === "true"
-          ? `w-1/2 max-w-sm lg:w-1/4`
-          : `md:max-w-xs lg:max-w-3xl`
-      } `}
+        className={`bg-idle-grey border rounded cursor-pointer
+      content-start 
+      ${single === true ? `w-1/2 max-w-sm lg:w-1/4` : ` `}
+      `}
         onClick={() => navigate(clickLink)}
       >
         <div>
