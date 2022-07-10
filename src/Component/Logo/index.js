@@ -8,7 +8,7 @@ function Logo({ width, height, link='/home' }) {
       className={`${width || "w-20"} ${height || "h-20"} cursor-pointer`}
       onClick={()=> navigate(link)}
       alt="Logo"
-      src="https://bit.ly/logo-ci0137"
+      src="https://ci0137.s3.amazonaws.com/mambo-adopciones/logo.jpg"
     />
   );
 }

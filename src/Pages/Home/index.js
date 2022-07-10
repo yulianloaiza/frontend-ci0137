@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "tw-elements";
 import Header from "../../Component/Header";
 import Title from "../../Component/Title";
 import ContentCard from "../../Component/ContentCard";
 import Footer from "../../Component/Footer";
+import { useSelector } from "react-redux";
 
 function Home() {
   const [showItem, setShowItem] = useState(0);
@@ -12,29 +13,20 @@ function Home() {
             nombre, organizacion, descripcion, autora, imagen
 
             CREO QUE LE HACE FALTA UN CAMPO, EL DEL ID DEL PERRITO*/
-  const histExito = [
-    [
-      "1Teppanyaki",
-      "Centro Municipal de Educación para el Cuido Animal",
-      "UNO Todo fue demasiado lindo de verdad, es una luz especial para nosotros",
-      "-La Maga del octavo",
-      "https://imageserver.petsbest.com/marketing/blog/meeting-new-dogs.jpg",
-    ],
-    [
-      "2MAXIMUS",
-      "tapantakki",
-      "DOSDecidimos llevarla a casa por que nos habíamos enamorado de ella. Hablé con mi esposo ya que ella es el tipo de perrita que se adopta menos. Las personas creen que es uno quien adopta a los perros, pero ellos son quien nos adoptan. Ella nos hace muy felices, y trae mucha alegría a la casa. No hay duda que ha sido la experiencia más fantástica que hemos tenido.",
-      "-La autora",
-      "https://icalmpet.com/wp-content/uploads/iCalm-Pet-Solutions-Dog.jpg",
-    ],
-    [
-      "3DRAKE",
-      "Holá",
-      "TRESTodo fue demasiado lindo de verdad, es una luz especial para nosotros",
-      "-Inés Hernandez de la O",
-      "https://petapixel.com/assets/uploads/2022/06/Breathtaking-Photos-of-Airborne-Dogs-Highlighted-by-Colorful-Holi-Paint07-800x800.jpg",
-    ],
-  ];
+
+  const [stories, setStories] = useState([]);
+
+    const getSuccessStories = async () => {
+      const storiesFetch = await fetch('http://localhost:7500/welcome');
+      const listStories = await storiesFetch.json();
+      console.log(listStories);
+      setStories(listStories);
+    };
+
+    useEffect( ()=> {
+      getSuccessStories()
+    }, [])
+    
   /*Acomodar el llamado con lo que sea necesario de la base de datos. Esto es un ejemplo.
   Al momento esta como image, nombre, organizaion, localizacion
   CREO QUE LE HACE FALTA UN CAMPO, EL DEL ID DEL PERRITO*/
@@ -52,15 +44,15 @@ function Home() {
       "Cartago",
     ],
     [
-      "https://d2zp5xs5cp8zlg.cloudfront.net/image-32958-800.jpg",
-      "Maximiliano",
-      "El Refugio Hogar Animal Costa Ballena",
+      "https://gray-kcbd-prod.cdn.arcpublishing.com/resizer/SQif8hGoA6PNTFUsqV5sEpUbUBU=/800x800/smart/filters:quality(70)/cloudfront-us-east-1.images.arcpublishing.com/gray/STCTNNN5SBCQ7L34YV7WD36APA.jpg",
+      "Jessy",
+      "Animales de Asís",
       "Cartago",
     ],
     [
-      "https://www.dogstrust.org.uk/dogimages/1120385_ginger_20220427084245_ginger-summer-pic_800.jpg",
-      "Lupita",
-      "Centro Municipal de Educación para el Cuido Animal",
+      "https://d2zp5xs5cp8zlg.cloudfront.net/image-35477-800.jpg",
+      "Jessy",
+      "Animales de Asís",
       "Cartago",
     ],
   ];
@@ -99,13 +91,13 @@ function Home() {
           left-4 right-4 md:left-8 md:right-8 lg:left-20 lg:right-20"
         ></div>
         <img
-          src="https://img.freepik.com/foto-gratis/retrato-grupo-adorables-cachorros_53876-64796.jpg?t=st=1656434026~exp=1656434626~hmac=afd4b9dd00945edbebad35120d5f8ffee34730b435f27b1f7c043b780c5cc3d3&w=2000"
+          src="https://ci0137.s3.amazonaws.com/mambo-adopciones/welcomeImage.webp"
           alt="Imágen de bienvenida"
           className="w-full h-96 object-cover rounded"
         />
       </div>
 
-      <Title titleText="TRENDINGGGG"/>
+      <Title titleText="Trending" />
       {/*Div que contiene las 4 tarjetas POR EL MOMENTO, LUEGO DEBE SER TRAIDO DE LA BD 
       place-items-center
        md: place-items-start
@@ -130,7 +122,32 @@ function Home() {
         })}
       </div>
 
-      <Title titleText="Historias de éxito"/>
+      <Title titleText="No te olvides de ellos" />
+      {/*Div que contiene las 4 tarjetas POR EL MOMENTO, LUEGO DEBE SER TRAIDO DE LA BD 
+      place-items-center
+       md: place-items-start
+      */}
+      <div
+        className="gap-8 justify-between py-4 mb-8 
+      grid grid-cols-1 sm:grid-cols-2  md:grid-cols-4
+      px-4 md:px-8 lg:px-20"
+      >
+        {ejemploContentCards.map((i, index) => {
+          return (
+            <ContentCard
+              key={`cc_${index}`}
+              image={i[0]}
+              mainText={i[1]}
+              subtitle="Organización"
+              secondaryText={i[2]}
+              location={i[3]}
+              clickLink="PONERELIDELPERRITO"
+            />
+          );
+        })}
+      </div>
+
+      <Title titleText="Historias de éxito" />
       <div
         className="px-4 md:px-8 lg:px-20 pb-4 mb-8
         grid grid-cols-1  
@@ -141,12 +158,12 @@ function Home() {
           className="bg-idle-grey rounded
         px-4 md:px-8 lg:px-20 py-4 mb-3 lg:mb-8 flex items-center"
         >
-          {histExito.map((i, index) => {
+          {stories.map((i, index) => {
             return (
               showItem === index && (
                 <div key={`text_${index}`}>
-                  <p className="text-3xl font-bold">{i[2]}</p>
-                  <p className="text-xl text-right">{i[3]}</p>
+                  <p className="text-3xl font-bold">{i.description}</p>
+                  <p className="text-xl text-right">{i.author}</p>
                 </div>
               )
             );
@@ -165,30 +182,31 @@ function Home() {
           >
             {/*carousel-inner es todo lo que va a estar afectado por el cambio en flechas */}
             <div className="carousel-inner overflow-hidden grid grid-flow-rows-3 justify-center ">
-              {histExito.map((i, index) => {
+              {stories.map((i, index) => {
                 return (
                   <div
                     key={`text_${index}`}
-                    className={`carousel-item ${index === 0 ? "active" : ""
-                      } content-center max-w-max`}
+                    className={`carousel-item ${
+                      index === 0 ? "active" : ""
+                    } content-center max-w-max`}
                   >
                     <img
-                      src={i[4]}
+                      src={i.image}
                       className="max-h-96 max-w-96 rounded"
                       alt="Imagen principal"
                     />
                     <div className="p-b-4 text-left">
                       <p className="text-subtitle-grey text-lg	">Nombre </p>
-                      <p className="text-2xl max-w-xs pb-2">{i[0]}</p>
+                      <p className="text-2xl max-w-xs pb-2">{i.name}</p>
                       <p className="text-subtitle-grey text-lg	">Organización</p>
-                      <p className="text-xl max-w-xs pb-2">{i[1]}</p>
+                      <p className="text-xl max-w-xs pb-2">{i.organization}</p>
                     </div>
                   </div>
                 );
               })}
               {/*Indicadores inferiores*/}
               <div className="carousel-indicators p-0 mb-0 text-center">
-                {histExito.map((i, index) => {
+                {stories.map((i, index) => {
                   return (
                     <button
                       key={`image_${index}`}

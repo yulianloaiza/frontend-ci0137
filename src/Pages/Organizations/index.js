@@ -4,10 +4,25 @@ import Header from "../../Component/Header";
 import ContentCard from "../../Component/ContentCard";
 import Footer from "../../Component/Footer";
 import Title from "../../Component/Title";
+import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 //import Header from "../../Component/Header";
 //Del momento solo esta como relleno para ir probando componentes
 function Organizations() {
 
+
+  const [organizations, setOrganizations] = useState([]);
+
+    const getOrganizations = async () => {
+      const organizationsFetch = await fetch('http://localhost:7500/organizations');
+      const listOrganizations = await organizationsFetch.json();
+      console.log(listOrganizations);
+      setOrganizations(listOrganizations);
+    };
+
+    useEffect( ()=> {
+      getOrganizations()
+    }, [])
   //Este const deberia de recibir un elemento del .JSON que funciona como base de datos.
   const ejemploContentCards = [
     [
@@ -37,13 +52,13 @@ function Organizations() {
       grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3
       px-4 md:px-8 lg:px-20"
       >
-        {ejemploContentCards.map((i, index) => {
+        {organizations.map((i, index) => {
           return (
             <ContentCard
               key={`cc_${index}`}
-              image={i[0]}
-              mainText={i[1]}
-              location={i[2]}
+              image={i.images[0]}
+              mainText={i.name}
+              location={i.state}
               clickLink="PONERELIDELPERRITO"
             />
           );

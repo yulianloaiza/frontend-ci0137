@@ -5,10 +5,26 @@ import ContentCard from "../../Component/ContentCard";
 import Footer from "../../Component/Footer";
 import Filter from "../../Component/Filter";
 import Title from "../../Component/Title";
+import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 
 //TODO QUE SEA RESPONSIVE
 
 function Animals() {
+
+  const [animals, setAnimals] = useState([]);
+
+    const getAnimals = async () => {
+      const animalsFetch = await fetch('http://localhost:7500/animals');
+      const listAnimals = await animalsFetch.json();
+      console.log(listAnimals);
+      setAnimals(listAnimals);
+    };
+
+    useEffect( ()=> {
+      getAnimals()
+    }, [])
+
   const ejemploContentCards = [
     [
       "https://gray-kcbd-prod.cdn.arcpublishing.com/resizer/SQif8hGoA6PNTFUsqV5sEpUbUBU=/800x800/smart/filters:quality(70)/cloudfront-us-east-1.images.arcpublishing.com/gray/STCTNNN5SBCQ7L34YV7WD36APA.jpg",
@@ -59,13 +75,13 @@ function Animals() {
           grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3
           px-4 md:px-8 lg:px-20 col-span-3"
         >
-          {ejemploContentCards.map((i, index) => {
+          {animals.map((i, index) => {
             return (
               <ContentCard
                 key={`cc_${index}`}
-                image={i[0]}
-                mainText={i[1]}
-                location={i[2]}
+                image={i.images[0]}
+                mainText={i.name}
+                location={i.organization}
                 clickLink="PONERELIDELPERRITO"
               />
             );
