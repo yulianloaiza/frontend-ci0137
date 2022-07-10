@@ -52,7 +52,7 @@ function Animals() {
       {/*Establece el tamaño de las 2 columnas. Una en 1-4 y la otra en el resto*/}
       <div
         className="px-4 md:px-8 lg:px-20 pb-4 mb-8
-        grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4"
+        grid grid-cols-1 lg:grid-cols-4"
       >
         {/*Columna de filtro*/}
         <div
