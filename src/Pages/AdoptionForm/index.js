@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import ReactSelect from "react-select";
 import Header from "../../Component/Header";
@@ -5,6 +6,7 @@ import Footer from "../../Component/Footer";
 import ContentCard from "../../Component/ContentCard";
 import Button from "../../Component/Button";
 import InputWithLabel from "../../Component/InputWithLabel";
+import Title from "../../Component/Title";
 
 /*
 Aca se usa un aniaml y emails quemados solo para fines ilustrativos
@@ -21,6 +23,7 @@ los labels de aca como las respuestas de la persona
 Y luego alla mismo, es donde se envia el correo hacia la organizacion con copia a la persona que desea adoptar. */
 
 function AnimalInfo() {
+  const [success, setSuccess] = useState(false);
   const exampleAnimal = [
     ["https://d2zp5xs5cp8zlg.cloudfront.net/image-32958-800.jpg"],
     ["Maximiliano"],
@@ -46,6 +49,7 @@ function AnimalInfo() {
   });
 
   const onSubmit = (data) => {
+    setSuccess(true);
     console.log(data);
     //Enviarlo al controlador de correos. Tambien recordarorganizationEmail
   };
@@ -54,6 +58,21 @@ function AnimalInfo() {
     <>
       <div className="bg-light-gold">
         <Header />
+        <div className="grid grid-cols-1 md:grid-cols-2">
+          <div className="md:text-right ">
+            <Title titleText={"Formulario de adopción"} />
+          </div>
+
+          <div className="px-4 md:pr-8 lg:pr-20 pb-4 mb-3 self-center md:text-right">
+            <Button
+              text="Regresar"
+              width={"1/2 md:w-3/4 xl:w-1/4 "}
+              className="px-4 md:px-8 lg:px-20"
+              goBack
+            />
+          </div>
+        </div>
+
         <div
           className="px-4 md:px-8 lg:px-20 pb-4 mb-8
           grid grid-cols-1"
@@ -384,6 +403,15 @@ function AnimalInfo() {
                     width={"11/12 md:w-9/12 xl:w-1/2"}
                     buttonType="submit"
                   />
+                </div>
+                <div className="px-5 flex flex-col text-center justify-center items-center">
+                  {success && (
+                    <p className="mt-3 w-11/12 md:w-9/12 xl:w-1/2 bg-brown-gold rounded-lg text-xl">
+                      Se ha enviado el formulario! La organización responderá al
+                      correo en debido tiempo. Puede revisar su correo para ver
+                      una copia del mensaje.
+                    </p>
+                  )}
                 </div>
               </form>
             </div>
