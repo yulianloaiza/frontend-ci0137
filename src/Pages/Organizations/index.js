@@ -41,7 +41,7 @@ function Organizations() {
               image={i.images[0]}
               mainText={i.name}
               location={i.state}
-              clickLink="PONERELIDELPERRITO"
+              clickLink={`/organization_info/${i.id}`}
             />
           );
         })}
