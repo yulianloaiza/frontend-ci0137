@@ -5,10 +5,8 @@ import ContentCard from "../../Component/ContentCard";
 import Footer from "../../Component/Footer";
 import Title from "../../Component/Title";
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
 import Loader from "../../Component/Loader";
-//import Header from "../../Component/Header";
-//Del momento solo esta como relleno para ir probando componentes
+
 function Organizations() {
   const [organizations, setOrganizations] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -50,7 +48,7 @@ function Organizations() {
                 image={i.images[0]}
                 mainText={i.name}
                 location={i.state}
-                clickLink="PONERELIDELPERRITO"
+                clickLink={`/organization_info/${i.id}`}
               />
             );
           })}

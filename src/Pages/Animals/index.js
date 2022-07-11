@@ -9,8 +9,6 @@ import Title from "../../Component/Title";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 
-//TODO QUE SEA RESPONSIVE
-
 function Animals() {
   const [animals, setAnimals] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
