@@ -17,13 +17,13 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-      <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/animals" element={<Animals />} />
         <Route path="/organizations" element={<Organizations />} />
         <Route path="/about" element={<About />} />
-        <Route path="/animal_info/" element={<AnimalInfo />} />
-        <Route path="/organization_info" element={<OrganizationInfo />} />
+        <Route path="/animal_info/:id" element={<AnimalInfo />} />
+        <Route path="/organization_info/:id" element={<OrganizationInfo />} />
         <Route path="/adoption_form" element={<AdoptionForm />} />
       </Routes>
     </BrowserRouter>

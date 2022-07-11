@@ -82,7 +82,7 @@ function Animals() {
                 image={i.images[0]}
                 mainText={i.name}
                 location={i.organization}
-                clickLink="PONERELIDELPERRITO"
+                clickLink={`/animal_info/${i.id}`}
               />
             );
           })}

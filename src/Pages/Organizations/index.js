@@ -23,24 +23,6 @@ function Organizations() {
     useEffect( ()=> {
       getOrganizations()
     }, [])
-  //Este const deberia de recibir un elemento del .JSON que funciona como base de datos.
-  const ejemploContentCards = [
-    [
-      "https://gray-kcbd-prod.cdn.arcpublishing.com/resizer/SQif8hGoA6PNTFUsqV5sEpUbUBU=/800x800/smart/filters:quality(70)/cloudfront-us-east-1.images.arcpublishing.com/gray/STCTNNN5SBCQ7L34YV7WD36APA.jpg",
-      "Adopta un amigo",
-      "Alajuela",
-    ],
-    [
-      "https://d2zp5xs5cp8zlg.cloudfront.net/image-35477-800.jpg",
-      "Patas a la obra",
-      "Cartago",
-    ],
-    [
-      "https://d2zp5xs5cp8zlg.cloudfront.net/image-32958-800.jpg",
-      "Garras & Patas",
-      "Heredia",
-    ],
-  ];
 
   return (
     <div className="bg-light-gold">

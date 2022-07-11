@@ -4,15 +4,26 @@ import Footer from "../../Component/Footer";
 import Carousel from "../../Component/Carousel";
 import Button from "../../Component/Button";
 import Title from "../../Component/Title";
-//Cambiar el nombre cuando se resuelva la duda con el profe del nombre de la ruta.
-
-/*
-Aca se usa un arreglo de imagenes solo para fines ilustrativos
-En realidad se debe agarrrar del backend.
-El texto tambien se deberia jalar del backend
-          */
+import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 
 function AnimalInfo() {
+  const {id} = useParams();
+  const [animalInfo, setAnimalInfo] = useState([]);
+  console.log(id);
+
+  useEffect(() => {
+    const getAnimalById = async () => {
+      const animalInfoFetch = await fetch(
+        `http://localhost:7500/animals/${id}`
+      );
+      const readyAnimalInfo = await animalInfoFetch.json();
+      console.log(readyAnimalInfo);
+      setAnimalInfo(readyAnimalInfo);
+    };
+    getAnimalById();
+  }, [id]);
   /*arreglo de imagenes solo para fines ilustrativos
             En realidad se debe agarrrar del backend*/
   const imgArray = [
@@ -29,7 +40,7 @@ function AnimalInfo() {
         <Header />
         <div className="grid grid-cols-1 md:grid-cols-2">
           <div className="md:text-right ">
-            <Title titleText={"NOMBREPERRO"} />
+            <Title titleText={animalInfo.name} />
           </div>
 
           <div className="px-4 md:pr-8 lg:pr-20 pb-4 mb-3 self-center md:text-right">
@@ -54,7 +65,7 @@ function AnimalInfo() {
           >
             {/*arreglo de imagenes solo para fines ilustrativos
             En realidad se debe agarrrar del backend*/}
-            <Carousel images={imgArray} />
+            <Carousel images={animalInfo.images} />
           </div>
 
           {/*Columna derecha*/}
@@ -64,34 +75,19 @@ function AnimalInfo() {
           >
             <div className="p-4 text-left">
               <p className="text-subtitle-grey">Nombre </p>
-              <p className="text-xl pb-2">Nombre del animal</p>
+              <p className="text-xl pb-2">{animalInfo.name}</p>
               <p className="text-subtitle-grey">Organización </p>
-              <p className="text-xl pb-2">
-                Centro Municipal de Educación para el Cuido Animal
-              </p>
+              <p className="text-xl pb-2">{animalInfo.organization}</p>
               <p className="text-subtitle-grey">Tamaño</p>
-              <p className="text-lg pb-2">Pequeño </p>
-              <p className="text-subtitle-grey">Género </p>
-              <p className="text-lg pb-2">Hembra </p>
-              <p className="text-subtitle-grey">Ubicación </p>
-              <p className="text-lg pb-2">La provincia </p>
-              <p className="text-subtitle-grey">Edad </p>
-              <p className="text-lg pb-2">2 </p>
+              <p className="text-lg pb-2">{animalInfo.size}</p>
+              <p className="text-subtitle-grey">Género</p>
+              <p className="text-lg pb-2">{animalInfo.gender}</p>
+              <p className="text-subtitle-grey">Ubicación</p>
+              <p className="text-lg pb-2">{animalInfo.state}</p>
+              <p className="text-subtitle-grey">Edad</p>
+              <p className="text-lg pb-2">{animalInfo.years}</p>
               <p className="text-subtitle-grey">Descripción </p>
-              <p className="text-lg pb-2">
-                Cuando nos pidieron ayuda para Apolonio, las fotos eran de un
-                perro flaco con las uñas más largas que jamás vimos, es obvio
-                que estaba dentro de una casa o propiedad donde no tenía que
-                caminar, en el 2017 se le calcularon 10 años de edad, No sabemos
-                si se perdió o lo botaron, con la uñas ya sabemos por qué
-                estaban tan largas, para cortarlas necesitamos por lo menos 3
-                personas por que odia que se las corten, después de eso no tiene
-                ningún problema, cuando llego al albergue se le dio tratamiento
-                de erlichia. Es un perro muy bueno, le encanta que lo toquen,
-                los cachorros son su debilidad los cuida y los defiende como si
-                fueran de el. Apolonio es un perro grande con un corazón de
-                cachorro, merece una buena familia.
-              </p>
+              <p className="text-lg pb-2">{animalInfo.description}</p>
             </div>
             <div className="text-center mb-6 ">
               <Button
