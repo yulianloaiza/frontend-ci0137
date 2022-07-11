@@ -6,13 +6,6 @@ import Button from "../../Component/Button";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Loader from "../../Component/Loader";
-//Cambiar el nombre cuando se resuelva la duda con el profe del nombre de la ruta.
-
-/*
-Aca se usa un arreglo de imagenes solo para fines ilustrativos
-En realidad se debe agarrrar del backend.
-El texto tambien se deberia jalar del backend
-          */
 
 function OrganizationInfo() {
   const { id } = useParams();
@@ -66,8 +59,6 @@ function OrganizationInfo() {
               className="bg-component-shadow rounded py-4 mb-3 lg:mb-8
         px-4 md:px-8 lg:px-0 xl:px-20"
             >
-              {/*arreglo de imagenes solo para fines ilustrativos
-            En realidad se debe agarrrar del backend*/}
               <Carousel images={organizationInfo.images} />
             </div>
 

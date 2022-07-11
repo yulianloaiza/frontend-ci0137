@@ -8,12 +8,6 @@ import AnimalInfo from "../AnimalInfo";
 import OrganizationInfo from "../OrganizationInfo";
 import AdoptionForm from "../AdoptionForm";
 
-/*Del momento solo esta como relleno para ir probando componentes
-La ruta de animales en especificos se hace con un use params de react. 
-Y luego se maneja dependiendo del id, cual animal se trar para desplegar info
-algo como /AnimalInfo/:id
-Lo mismo para org especifica y para formulario*/
-
 function App() {
   return (
     <BrowserRouter>

@@ -1,5 +1,3 @@
-//import { useState } from "react";
-//import "tw-elements";
 import Header from "../../Component/Header";
 import ContentCard from "../../Component/ContentCard";
 import Footer from "../../Component/Footer";

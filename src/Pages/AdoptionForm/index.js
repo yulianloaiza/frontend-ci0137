@@ -11,18 +11,11 @@ import InputWithLabel from "../../Component/InputWithLabel";
 import Title from "../../Component/Title";
 
 /*
-Aca se usa un aniaml y emails quemados solo para fines ilustrativos
-En realidad se debe agarrrar del backend. Igual a como se hace en animal especifico y org especifico
+Aca se usa un email quemados solo para fines ilustrativos
+En realidad se debe agarrrar del backend.
 */
-
 //Al darle enviar en el formulario, se envia el correo tanto a la organizacion como al cliente.
 //En el backend tener un endpoint de envìo de correos que reciba todos los parametros del formulario.
-
-/* 
-Se deberia enviar toda esta info 
-al controlador de enviar correos si no me equivoco. Alla es donde se asembla el mensaje que tendria tanto 
-los labels de aca como las respuestas de la persona
-Y luego alla mismo, es donde se envia el correo hacia la organizacion con copia a la persona que desea adoptar. */
 
 function AdoptionForm() {
   const { id } = useParams();

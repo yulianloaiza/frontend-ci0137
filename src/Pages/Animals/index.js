@@ -1,5 +1,3 @@
-//import Header from "../../Component/Header";
-//Del momento solo esta como relleno para ir probando componentes
 import Header from "../../Component/Header";
 import ContentCard from "../../Component/ContentCard";
 import Footer from "../../Component/Footer";
