@@ -96,13 +96,15 @@ function AnimalInfo() {
                 <p className="text-lg pb-2">{animalInfo.description}</p>
               </div>
               <div className="text-center mb-6 ">
-                <Button
+                <button
+                  type="button"
+                  className={`bg-navy-blue text-white font-semibold py-2 px-4 w-full border border-white`}
                   onClick={() => {
                     Mixpanel.track(Mixpanel.TYPES.GO_TO_ADOPTION_FORM);
                   }}
-                  text="Adoptar"
-                  width={"full"}
-                />
+                >
+                  "Adoptar"
+                </button>
               </div>
             </div>
           </div>
