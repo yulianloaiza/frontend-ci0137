@@ -8,14 +8,15 @@ import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Loader from "../../Component/Loader";
+import { useNavigate } from "react-router-dom";
 
 function AnimalInfo() {
   const { id } = useParams();
   const [isLoaded, setIsLoaded] = useState(false);
   const [animalInfo, setAnimalInfo] = useState([]);
-  console.log(id);
+  let navigate = useNavigate();
 
-  useEffect(() => {
+  useEffect(() => {    
     let itemJSON;
     const getAnimalById = async (id) => {
       const itemFetch = await fetch(`http://localhost:7500/animals/${id}`);
@@ -99,9 +100,10 @@ function AnimalInfo() {
                 <button
                   type="button"
                   className={`bg-navy-blue text-white font-semibold py-2 px-4 w-full border border-white`}
-                  onClick={() => {
+                  onClick={() => {                  
+                    navigate(`/adoption_form/${animalInfo.id}`); 
                     Mixpanel.track(Mixpanel.TYPES.GO_TO_ADOPTION_FORM);
-                  }}
+                  }}     
                 >
                   "Adoptar"
                 </button>

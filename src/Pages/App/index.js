@@ -25,7 +25,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/animal_info/:id" element={<AnimalInfo />} />
         <Route path="/organization_info/:id" element={<OrganizationInfo />} />
-        <Route path="/adoption_form" element={<AdoptionForm />} />
+        <Route path="/adoption_form/:id" element={<AdoptionForm />} />
       </Routes>
     </BrowserRouter>
   );

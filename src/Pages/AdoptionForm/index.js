@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm, Controller } from "react-hook-form";
+import { useParams } from "react-router-dom";
 import ReactSelect from "react-select";
 import Header from "../../Component/Header";
 import Footer from "../../Component/Footer";
 import ContentCard from "../../Component/ContentCard";
 import Button from "../../Component/Button";
+import Loader from "../../Component/Loader";
 import InputWithLabel from "../../Component/InputWithLabel";
 import Title from "../../Component/Title";
 
@@ -22,14 +24,24 @@ al controlador de enviar correos si no me equivoco. Alla es donde se asembla el 
 los labels de aca como las respuestas de la persona
 Y luego alla mismo, es donde se envia el correo hacia la organizacion con copia a la persona que desea adoptar. */
 
-function AnimalInfo() {
+function AdoptionForm() {
+  const { id } = useParams();
   const [success, setSuccess] = useState(false);
-  const exampleAnimal = [
-    ["https://d2zp5xs5cp8zlg.cloudfront.net/image-32958-800.jpg"],
-    ["Maximiliano"],
-    ["Animales del Asis"],
-    ["San Jose"],
-  ];
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [animalInfo, setAnimalInfo] = useState([]);
+
+  useEffect(() => {    
+    let itemJSON;
+    const getAnimalById = async (id) => {
+      const itemFetch = await fetch(`http://localhost:7500/animals/${id}`);
+      itemJSON = await itemFetch.json();
+      setIsLoaded(true);
+      //Ya tenemos los datos en formato json. Llamamos a variable de estado con datos
+      setAnimalInfo(itemJSON);
+    };
+    getAnimalById(id);
+  }, [id]);
+
   const organizationEmail = "rickyricky@mailinator.com";
 
   //Valores por defecto de los dropdowns.
@@ -62,7 +74,6 @@ function AnimalInfo() {
           <div className="md:text-right ">
             <Title titleText={"Formulario de adopción"} />
           </div>
-
           <div className="px-4 md:pr-8 lg:pr-20 pb-4 mb-3 self-center md:text-right">
             <Button
               text="Regresar"
@@ -77,22 +88,30 @@ function AnimalInfo() {
           className="px-4 md:px-8 lg:px-20 pb-4 mb-8
           grid grid-cols-1"
         >
+          {!isLoaded && (
+            <div className="flex justify-center">
+              <Loader />
+            </div>
+          )}
           {/*Primera fila.*/}
-          <div
-            className="bg-component-shadow rounded py-4 mb-2
+          {isLoaded && (
+            <div
+              className="bg-component-shadow rounded py-4 mb-2
             px-4 md:px-8 lg:px-0 xl:px-20  
             w-full flex justify-center"
-          >
-            <ContentCard
-              image={exampleAnimal[0]}
-              mainText={exampleAnimal[1]}
-              subtitle="Organización"
-              secondaryText={exampleAnimal[2]}
-              location={exampleAnimal[3]}
-              clickLink="PONERELIDELPERRITO"
-              single
-            />
-          </div>
+            >
+              <ContentCard
+                image={animalInfo.images[0]}
+                mainText={animalInfo.name}
+                subtitle="Organización"
+                secondaryText={animalInfo.organization}
+                location={animalInfo.state}                
+                clickLink={`/animal_info/${animalInfo.id}`}
+                single
+              />
+            </div>
+          )}
+
           {/*Segunda fila*/}
           <div
             className="bg-idle-grey rounded
@@ -423,4 +442,4 @@ function AnimalInfo() {
   );
 }
 
-export default AnimalInfo;
+export default AdoptionForm;
