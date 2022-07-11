@@ -113,7 +113,7 @@ function Carousel({ images }) {
             ></span>
           </button>
           {/*Thumbnail slider */}
-          <div className="relative w-full bg-gray-400 max-w-fit rounded-b">
+          <div className="relative w-full bg-gray-400 rounded-b">
             <div
               ref={sliderRef}
               className="w-full flex gap-4 overflow-x-scroll scroll-smooth scrollbar-hide p-2"

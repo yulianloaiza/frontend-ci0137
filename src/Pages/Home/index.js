@@ -9,10 +9,7 @@ import { useSelector } from "react-redux";
 function Home() {
   const [showItem, setShowItem] = useState(0);
   /*arreglo de historias exito solo para fines ilustrativos
-            En realidad se debe agarrrar del backend
-            nombre, organizacion, descripcion, autora, imagen
-
-            CREO QUE LE HACE FALTA UN CAMPO, EL DEL ID DEL PERRITO*/
+            En realidad se debe agarrrar del backend*/
 
   const [stories, setStories] = useState([]);
 
@@ -97,11 +94,7 @@ function Home() {
         />
       </div>
 
-      <Title titleText="Trending" />
-      {/*Div que contiene las 4 tarjetas POR EL MOMENTO, LUEGO DEBE SER TRAIDO DE LA BD 
-      place-items-center
-       md: place-items-start
-      */}
+      <Title titleText="Trending" />      
       <div
         className="gap-8 justify-between py-4 mb-8 
       grid grid-cols-1 sm:grid-cols-2  md:grid-cols-4
@@ -123,10 +116,6 @@ function Home() {
       </div>
 
       <Title titleText="No te olvides de ellos" />
-      {/*Div que contiene las 4 tarjetas POR EL MOMENTO, LUEGO DEBE SER TRAIDO DE LA BD 
-      place-items-center
-       md: place-items-start
-      */}
       <div
         className="gap-8 justify-between py-4 mb-8 
       grid grid-cols-1 sm:grid-cols-2  md:grid-cols-4

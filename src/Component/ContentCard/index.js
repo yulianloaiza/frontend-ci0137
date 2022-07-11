@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaMapMarkerAlt } from "react-icons/fa";
-//Pendiente que al darle click redireccione a la pagina especifica del animal. O no se
-// si eso se hace desde el lugar donde se llama el componente
 
-//Va a llevar borde? <div className={`border ${theme.productBorder}`}>
 function ContentCard({
   image,
   mainText,
