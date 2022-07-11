@@ -9,20 +9,21 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
 function AnimalInfo() {
-  const {id} = useParams();
+  const { id } = useParams();
+  const [isLoaded, setIsLoaded] = useState(false);
   const [animalInfo, setAnimalInfo] = useState([]);
   console.log(id);
 
   useEffect(() => {
-    const getAnimalById = async () => {
-      const animalInfoFetch = await fetch(
-        `http://localhost:7500/animals/${id}`
-      );
-      const readyAnimalInfo = await animalInfoFetch.json();
-      console.log(readyAnimalInfo);
-      setAnimalInfo(readyAnimalInfo);
+    let itemJSON;
+    const getAnimalById = async (id) => {
+      const itemFetch = await fetch(`http://localhost:7500/animals/${id}`);
+      itemJSON = await itemFetch.json();
+      setIsLoaded(true);
+      //Ya tenemos los datos en formato json. Llamamos a variable de estado con datos
+      setAnimalInfo(itemJSON);
     };
-    getAnimalById();
+    getAnimalById(id);
   }, [id]);
   /*arreglo de imagenes solo para fines ilustrativos
             En realidad se debe agarrrar del backend*/
@@ -52,54 +53,54 @@ function AnimalInfo() {
             />
           </div>
         </div>
-
-        <div
-          className="px-4 md:px-8 lg:px-20 pb-4 mb-8
-          grid grid-cols-1  
-          lg:grid lg:grid-cols-2"
-        >
-          {/*Columna izquierda*/}
+        {!isLoaded && <p>Cargando!</p>}
+        {isLoaded && (
           <div
-            className="bg-component-shadow rounded py-4 mb-3 lg:mb-8
-            px-4 md:px-8 lg:px-0 xl:px-20"
+            className="px-4 md:px-8 lg:px-20 pb-4 mb-8
+            grid grid-cols-1  
+            lg:grid lg:grid-cols-2"
           >
-            {/*arreglo de imagenes solo para fines ilustrativos
-            En realidad se debe agarrrar del backend*/}
-            <Carousel images={animalInfo.images} />
-          </div>
+            {/*Columna izquierda*/}
+            <div
+              className="bg-component-shadow rounded py-4 mb-3 lg:mb-8
+              px-4 md:px-8 lg:px-0 xl:px-20" 
+            >
+              <Carousel images={animalInfo.images}/>
+            </div>
 
-          {/*Columna derecha*/}
-          <div
-            className="bg-idle-grey rounded
-            px-4 md:px-8 lg:px-20 py-4 mb-8"
-          >
-            <div className="p-4 text-left">
-              <p className="text-subtitle-grey">Nombre </p>
-              <p className="text-xl pb-2">{animalInfo.name}</p>
-              <p className="text-subtitle-grey">Organización </p>
-              <p className="text-xl pb-2">{animalInfo.organization}</p>
-              <p className="text-subtitle-grey">Tamaño</p>
-              <p className="text-lg pb-2">{animalInfo.size}</p>
-              <p className="text-subtitle-grey">Género</p>
-              <p className="text-lg pb-2">{animalInfo.gender}</p>
-              <p className="text-subtitle-grey">Ubicación</p>
-              <p className="text-lg pb-2">{animalInfo.state}</p>
-              <p className="text-subtitle-grey">Edad</p>
-              <p className="text-lg pb-2">{animalInfo.years}</p>
-              <p className="text-subtitle-grey">Descripción </p>
-              <p className="text-lg pb-2">{animalInfo.description}</p>
-            </div>
-            <div className="text-center mb-6 ">
-              <Button
-                onClick={() => {
-                  Mixpanel.track(Mixpanel.TYPES.GO_TO_ADOPTION_FORM);
-                }}
-                text="Adoptar"
-                width={"full"}
-              />
+            {/*Columna derecha*/}
+            <div
+              className="bg-idle-grey rounded
+              px-4 md:px-8 lg:px-20 py-4 mb-8"
+            >
+              <div className="p-4 text-left">
+                <p className="text-subtitle-grey">Nombre </p>
+                <p className="text-xl pb-2">{animalInfo.name}</p>
+                <p className="text-subtitle-grey">Organización </p>
+                <p className="text-xl pb-2">{animalInfo.organization}</p>
+                <p className="text-subtitle-grey">Tamaño</p>
+                <p className="text-lg pb-2">{animalInfo.size}</p>
+                <p className="text-subtitle-grey">Género</p>
+                <p className="text-lg pb-2">{animalInfo.gender}</p>
+                <p className="text-subtitle-grey">Ubicación</p>
+                <p className="text-lg pb-2">{animalInfo.state}</p>
+                <p className="text-subtitle-grey">Edad</p>
+                <p className="text-lg pb-2">{animalInfo.years}</p>
+                <p className="text-subtitle-grey">Descripción </p>
+                <p className="text-lg pb-2">{animalInfo.description}</p>
+              </div>
+              <div className="text-center mb-6 ">
+                <Button
+                  onClick={() => {
+                    Mixpanel.track(Mixpanel.TYPES.GO_TO_ADOPTION_FORM);
+                  }}
+                  text="Adoptar"
+                  width={"full"}
+                />
+              </div>
             </div>
           </div>
-        </div>
+        )}
         <Footer />
       </div>
     </>
