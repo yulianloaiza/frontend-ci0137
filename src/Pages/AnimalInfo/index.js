@@ -7,6 +7,7 @@ import Title from "../../Component/Title";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import Loader from "../../Component/Loader";
 
 function AnimalInfo() {
   const { id } = useParams();
@@ -43,7 +44,6 @@ function AnimalInfo() {
           <div className="md:text-right ">
             <Title titleText={animalInfo.name} />
           </div>
-
           <div className="px-4 md:pr-8 lg:pr-20 pb-4 mb-3 self-center md:text-right">
             <Button
               text="Regresar"
@@ -53,7 +53,13 @@ function AnimalInfo() {
             />
           </div>
         </div>
-        {!isLoaded && <p>Cargando!</p>}
+
+        {!isLoaded && (
+          <div className="flex justify-center">
+            <Loader />
+          </div>
+        )}
+
         {isLoaded && (
           <div
             className="px-4 md:px-8 lg:px-20 pb-4 mb-8
@@ -63,9 +69,9 @@ function AnimalInfo() {
             {/*Columna izquierda*/}
             <div
               className="bg-component-shadow rounded py-4 mb-3 lg:mb-8
-              px-4 md:px-8 lg:px-0 xl:px-20" 
+              px-4 md:px-8 lg:px-0 xl:px-20"
             >
-              <Carousel images={animalInfo.images}/>
+              <Carousel images={animalInfo.images} />
             </div>
 
             {/*Columna derecha*/}

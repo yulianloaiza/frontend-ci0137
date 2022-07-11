@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Home from "../Home";
 import Animals from "../Animals";
 import Organizations from "../Organizations";
