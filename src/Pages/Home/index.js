@@ -8,8 +8,6 @@ import { useSelector } from "react-redux";
 
 function Home() {
   const [showItem, setShowItem] = useState(0);
-  /*arreglo de historias exito solo para fines ilustrativos
-            En realidad se debe agarrrar del backend*/
 
   const [stories, setStories] = useState([]);
 
@@ -23,36 +21,68 @@ function Home() {
     useEffect( ()=> {
       getSuccessStories()
     }, [])
-    
-  /*Acomodar el llamado con lo que sea necesario de la base de datos. Esto es un ejemplo.
-  Al momento esta como image, nombre, organizaion, localizacion
-  CREO QUE LE HACE FALTA UN CAMPO, EL DEL ID DEL PERRITO*/
-  const ejemploContentCards = [
-    [
-      "https://gray-kcbd-prod.cdn.arcpublishing.com/resizer/SQif8hGoA6PNTFUsqV5sEpUbUBU=/800x800/smart/filters:quality(70)/cloudfront-us-east-1.images.arcpublishing.com/gray/STCTNNN5SBCQ7L34YV7WD36APA.jpg",
-      "Diana",
-      "Centro Municipal de Educación para el Cuido Animal",
-      "Cartago",
-    ],
-    [
-      "https://d2zp5xs5cp8zlg.cloudfront.net/image-35477-800.jpg",
-      "Jessy",
-      "Animales de Asís",
-      "Cartago",
-    ],
-    [
-      "https://gray-kcbd-prod.cdn.arcpublishing.com/resizer/SQif8hGoA6PNTFUsqV5sEpUbUBU=/800x800/smart/filters:quality(70)/cloudfront-us-east-1.images.arcpublishing.com/gray/STCTNNN5SBCQ7L34YV7WD36APA.jpg",
-      "Jessy",
-      "Animales de Asís",
-      "Cartago",
-    ],
-    [
-      "https://d2zp5xs5cp8zlg.cloudfront.net/image-35477-800.jpg",
-      "Jessy",
-      "Animales de Asís",
-      "Cartago",
-    ],
-  ];
+
+    const trending = [
+      [
+        "https://ci0137.s3.amazonaws.com/mambo-adopciones/animals/1-2.jpeg",
+        "Luna",
+        "Centro Municipal de Educación para el Cuido Animal",
+        "Cartago",
+        0,
+      ],
+      [
+        "https://ci0137.s3.amazonaws.com/mambo-adopciones/animals/1-3.png",
+        "Lissie",
+        "El Refugio Hogar Animal Costa Ballena",
+        "Puntarenas",
+        1,
+      ],
+      [
+        "https://ci0137.s3.amazonaws.com/mambo-adopciones/animals/2-1.jpeg",
+        "Capi",
+        "Centro Municipal de Educación para el Cuido Animal",
+        "Cartago",
+        2,
+      ],
+      [
+        "https://ci0137.s3.amazonaws.com/mambo-adopciones/animals/2-2.jpeg",
+        "Sonny",
+        "Animales de Asís",
+        "Heredia",
+        3,
+      ],
+    ];
+  
+    const lessSeen = [
+      [
+        "https://ci0137.s3.amazonaws.com/mambo-adopciones/animals/0-1.jpeg",
+        "Catalina",
+        "Centro Municipal de Educación para el Cuido Animal",
+        "Cartago",
+        4,
+      ],
+      [
+        "https://ci0137.s3.amazonaws.com/mambo-adopciones/animals/0-2.jpeg",
+        "Elsa",
+        "El Refugio Hogar Animal Costa Ballena",
+        "Puntarenas",
+        5,
+      ],
+      [
+        "https://ci0137.s3.amazonaws.com/mambo-adopciones/animals/0-3.jpeg",
+        "China",
+        "Centro Municipal de Educación para el Cuido Animal",
+        "Cartago",
+        6,
+      ],
+      [
+        "https://ci0137.s3.amazonaws.com/mambo-adopciones/animals/1-1.webp",
+        "Rocky",
+        "Animales de Asís",
+        "Heredia",
+        7,
+      ],
+    ];
 
   //Solo nos devolvemos cuando llegamos la ultima slide
   function changeText(direction, currentSlide = showItem) {
@@ -100,7 +130,7 @@ function Home() {
       grid grid-cols-1 sm:grid-cols-2  md:grid-cols-4
       px-4 md:px-8 lg:px-20"
       >
-        {ejemploContentCards.map((i, index) => {
+        {trending.map((i, index) => {
           return (
             <ContentCard
               key={`cc_${index}`}
@@ -109,7 +139,7 @@ function Home() {
               subtitle="Organización"
               secondaryText={i[2]}
               location={i[3]}
-              clickLink="PONERELIDELPERRITO"
+              clickLink={`/animal_info/${i[4]}`}
             />
           );
         })}
@@ -121,7 +151,7 @@ function Home() {
       grid grid-cols-1 sm:grid-cols-2  md:grid-cols-4
       px-4 md:px-8 lg:px-20"
       >
-        {ejemploContentCards.map((i, index) => {
+        {lessSeen.map((i, index) => {
           return (
             <ContentCard
               key={`cc_${index}`}
@@ -130,7 +160,7 @@ function Home() {
               subtitle="Organización"
               secondaryText={i[2]}
               location={i[3]}
-              clickLink="PONERELIDELPERRITO"
+              clickLink={`/animal_info/${i[4]}`}
             />
           );
         })}
